@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">多個活動切換</string>
+    <string name="action_settings">Settings</string>
+    <string name="navi2sec_btn">到第二個Activity頁面</string>
+    <string name="navi2first_btn">到第一個activity頁面</string>
+    <string name="navi2third_btn">到第三個Activity頁面</string>
+    <string name="title_activity_second">第二個活動</string>
+    <string name="title_activity_third">第三個活動</string>
+    <string name="title_activity_first">第一個活動頁</string>
+
+</resources>
