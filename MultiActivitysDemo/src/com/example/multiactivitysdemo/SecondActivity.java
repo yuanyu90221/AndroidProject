@@ -14,24 +14,24 @@ public class SecondActivity extends Activity {
 	}
 	
 	/**
-	 * 眖材2笆传材1笆
+	 * 鍒囨彌闋侀潰
 	 * 
 	 * @param v
 	 */
 	public void navFrom2to1(View v){
-		// 猔intent рㄢ璶ち传Activity
+		// 婧栧倷Intent
 		Intent it = new Intent(this, MainActivity.class);
 		
 		startActivity(it);
 	}
 	
 	/**
-	 * 眖材2笆传材3笆
+	 * 鍒囨彌闋侀潰
 	 * 
 	 * @param v
 	 */
 	public void navFrom2to3(View v){
-		// 猔intent рㄢ璶ち传Activity
+		// 婧栧倷Intent
 		Intent it = new Intent(this, ThirdActivity.class);
 		
 		startActivity(it);

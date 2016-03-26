@@ -18,19 +18,19 @@ public class ThirdActivity extends Activity {
 	}
 	
 	/**
-	 * ±q²Ä3­Ó¬¡°Ê­¶´«¨ì²Ä2­Ó¬¡°Ê­¶
+	 * åˆ‡æ›é é¢
 	 * 
 	 * @param v
 	 */
 	public void navFrom3to2(View v){
-		// ª`¤Jintent §â¨â­Ó­n¤Á´«ªºActivity©ñ¤J
+		// Intent
 		Intent it = new Intent(this, SecondActivity.class);
 		
 		startActivity(it);
 	}
 	
 	/**
-	 * ±q²Ä3­Ó¬¡°Ê­¶´«¨ì²Ä1­Ó¬¡°Ê­¶
+	 * åˆ‡æ›é é¢
 	 * 
 	 * @param v
 	 */
