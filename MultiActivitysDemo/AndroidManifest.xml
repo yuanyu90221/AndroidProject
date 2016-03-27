@@ -21,6 +21,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
         <activity
             android:name=".SecondActivity"
@@ -30,6 +31,7 @@
             android:name=".ThirdActivity"
             android:label="@string/title_activity_third" >
         </activity>
+        
     </application>
-
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
 </manifest>

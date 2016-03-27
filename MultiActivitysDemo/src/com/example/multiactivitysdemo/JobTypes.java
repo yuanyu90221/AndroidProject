@@ -1,5 +1,11 @@
 package com.example.multiactivitysdemo;
 
+/**
+ * 用來限定職業型態的enum
+ * 
+ * @author Yuanyu
+ *
+ */
 public enum JobTypes {
 	STU("Student", 1), 
 	ENG("Engineers", 2), 

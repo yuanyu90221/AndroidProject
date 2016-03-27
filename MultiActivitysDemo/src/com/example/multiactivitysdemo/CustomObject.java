@@ -2,6 +2,12 @@ package com.example.multiactivitysdemo;
 
 import java.io.Serializable;
 
+/**
+ * 自定義的傳輸物件
+ * 
+ * @author Yuanyu
+ *
+ */
 public class CustomObject implements Serializable {
 	//做版本兼容性
 	private static final long serialVersionUid = 1L;
