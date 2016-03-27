@@ -34,6 +34,10 @@ public class MainActivity extends Activity {
 		// 準備Intent
 		Intent it = new Intent(this, SecondActivity.class);
 		it.putExtra("context", "切換頁面從1到2");
+		CustomObject co = new CustomObject("LiangYuanyu", JobTypes.ENG, 28);
+		Bundle bundle = new Bundle();
+		bundle.putSerializable("customObj", co);
+		it.putExtras(bundle);
 		startActivity(it);
 	}
 	
