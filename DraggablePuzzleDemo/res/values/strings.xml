@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DraggablePuzzleDemo</string>
+    
+    <string name="action_settings">Settings</string>
+    <string name="btnStopName">停止計時</string>
+    <string name="btnRestartName">重新計時</string>
+
+</resources>

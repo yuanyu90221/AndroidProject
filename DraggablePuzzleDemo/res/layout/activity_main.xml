@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.draggablepuzzledemo.MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#888888"
+        android:orientation="horizontal" >
+
+		<!-- 顯示 計時器UI -->
+        <TextView 
+		    android:id="@+id/timer"
+		    android:layout_width="40dp"
+		    android:layout_height="20dp" 
+		    android:background="#0000ff"
+			android:textColor="#00ff00"
+			android:text="00:00"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/draggbleRangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/draggable_range" />
+
+    <ImageView
+        android:id="@+id/brown_rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/draggbleRangle"
+        android:layout_alignTop="@+id/draggbleRangle"
+        android:src="@drawable/brown_rectangle"
+       />
+
+    <ImageView
+        android:id="@+id/red_rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/draggbleRangle"
+        android:layout_alignTop="@+id/draggbleRangle"
+        android:src="@drawable/red_rectangle" />
+
+    <Button
+        android:id="@+id/btnStopTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="stopTimer"
+        android:text="@string/btnStopName" />
+
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="restartTimer"
+        android:text="@string/btnRestartName" />
+
+</RelativeLayout>
