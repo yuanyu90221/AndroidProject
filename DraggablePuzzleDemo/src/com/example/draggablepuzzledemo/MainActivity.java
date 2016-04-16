@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -29,12 +30,15 @@ public class MainActivity extends Activity {
 	private int tsec = 0,  csec =0 , cmin =0;
 	// 啟動計時器flag
 	private boolean isStartTimer = true;
+	
+	private Toast tos;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		tos = Toast.makeText(this,"",Toast.LENGTH_SHORT);
 		// 1. 產生拖拉監聽器物件
-		imgListener = new DragImgListener();
+		imgListener = new DragImgListener(tos);
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器
 		brown_rectangle = (ImageView) findViewById(R.id.brown_rectangle);
 		brown_rectangle.setOnTouchListener(imgListener);

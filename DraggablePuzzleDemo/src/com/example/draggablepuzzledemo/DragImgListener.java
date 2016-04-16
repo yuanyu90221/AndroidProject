@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.Toast;
 /**
  * @description 拖拉監聽器 用來監聽物件移動
  * 
@@ -14,6 +15,24 @@ public class DragImgListener implements OnTouchListener{
 	float x = 0, y = 0; // 原本圖片存在的X,Y軸位置
 	int mx = 0, my = 0; // 圖片被拖曳的X ,Y軸距離長度
 	float rowx = 0, rowy = 0;
+    private static final int RANGE = 40;
+    private static int fx0 = 0;
+    private static int fy0 = 0;
+    private static int fx1 = 0;
+    private static int fy1 = 0;
+	private Toast result;
+	
+	public Toast getResult() {
+		return result;
+	}
+
+	public void setResult(Toast result) {
+		this.result = result;
+	}
+	
+	public DragImgListener(Toast tos){
+		this.result = tos;
+	}
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
@@ -31,10 +50,21 @@ public class DragImgListener implements OnTouchListener{
 		case MotionEvent.ACTION_MOVE:// 移動圖片時
 			// 把游標所在的座標減去 圖形被拖拉的座標 即是移動的位置
 			mx = (int) (event.getRawX() - x);
-			my = (int) (event.getRawY() - y);			
+			my = (int) (event.getRawY() - y);	
+			// 算出整數格移動
+			fx0 = (mx/RANGE);
+			fy0 = (my/RANGE);
+			fx1 = (mx + v.getWidth())/RANGE;
+			fy1 = (my+ v.getHeight())/RANGE;
 			
-			v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
-
+			String cod = String.format("(fx0,fy0) = (%d, %d),\n (fx1, fy1) = (%d, %d)",fx0 , fy0, fx1, fy1);
+			
+			result.setText(cod);
+			result.show();
+			fx0 *= RANGE;
+			fy0 *= RANGE;
+			//v.layout(mx, my, mx + v.getWidth(), my + v.getHeight());
+			v.layout(fx0, fy0, fx0 + v.getWidth(), fy0 + v.getHeight());
 			break;
 		case MotionEvent.ACTION_CANCEL:
 		}
