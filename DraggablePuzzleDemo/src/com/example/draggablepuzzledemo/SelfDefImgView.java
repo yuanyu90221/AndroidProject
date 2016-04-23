@@ -3,13 +3,13 @@ package com.example.draggablepuzzledemo;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * ·s¼W¥Î¨ÓÀx¦s¥e¥ÎªÅ®æªºª«¥ó
+ * ç”¨ä¾†å„²å­˜æ–¹æ ¼spaceçš„ç‰©ä»¶
  * 
  * @author user
  *
  */
 public class SelfDefImgView{
-	// Àx¦s¥Ø«e¹Ï§Î©Ò¥e¥ª¤W¨¤¦ì¸m
+	// å„²å­˜ç›®å‰viewä½ç½® å·¦ä¸Šè§’
 	public Cordinate position = new Cordinate(0,0);
 
 	public Cordinate getPosition() {
@@ -19,7 +19,7 @@ public class SelfDefImgView{
 	public void setPosition(Cordinate position) {
 		this.position = position;
 	}
-	// Àx¦s¬Û¹ï¥ª¤W¨¤¦³­È±ooffset
+	// å„²å­˜ç›®å‰viewä½ç½®ç›¸å° ä½ç½®
 	public List<Cordinate> occupiedSpaceList  = new ArrayList<Cordinate>();
 	
 	
