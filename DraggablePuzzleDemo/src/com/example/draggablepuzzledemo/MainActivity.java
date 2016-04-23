@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 		
 		tos = Toast.makeText(this,"",Toast.LENGTH_SHORT);
 		// 1. 產生拖拉監聽器物件
-		imgListener = new DragImgListener(tos, viewMap);
+		imgListener = new DragImgListener(tos, viewMap, this);
 		DragImgListener.score = 0;
 		imgListener.position = new PositionMatrix();
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器

@@ -3,6 +3,7 @@ package com.example.draggablepuzzledemo;
 import java.util.HashMap;
 import java.util.List;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,8 +27,9 @@ public class DragImgListener implements OnTouchListener{
     public static final Cordinate scopeLeftUp = new Cordinate(3,4);
     public static final Cordinate scopeRightDown = new Cordinate(6,7);
     public PositionMatrix position = new PositionMatrix();
-    public HashMap<String, SelfDefImgView> viewMap; 
-    
+    public HashMap<String, SelfDefImgView> viewMap;
+    //用來記住目前所在的Activity
+    public Activity renderActivity;
 	private Toast result;
 	
 	public Toast getResult() {
@@ -38,9 +40,10 @@ public class DragImgListener implements OnTouchListener{
 		this.result = result;
 	}
 	
-	public DragImgListener(Toast tos, HashMap<String, SelfDefImgView> viewMap){
+	public DragImgListener(Toast tos, HashMap<String, SelfDefImgView> viewMap, Activity renderAct){
 		this.result = tos;
 		this.viewMap = viewMap;
+		this.renderActivity = renderAct;
 	}
 
 	@Override
@@ -95,7 +98,11 @@ public class DragImgListener implements OnTouchListener{
 			if(score == 16){
 				
 				cod+= String.format("(fx0,fy0) = (%d, %d),\n score = %d, you win! time ",fx0 , fy0, score);
-				MainActivity.isStartTimer = false;
+				if (renderActivity instanceof MainActivity) {
+					MainActivity.isStartTimer = false;
+				} else {
+					SecondActivity.isStartSecondTimer = false;
+				}
 			}
 			result.setText(cod);
 			result.show();
