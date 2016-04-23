@@ -2,9 +2,11 @@
 <resources>
 
     <string name="app_name">DraggablePuzzleDemo</string>
-    
     <string name="action_settings">Settings</string>
     <string name="btnStopName">停止計時</string>
     <string name="btnRestartName">重新計時</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="secondLevel">前往第二關</string>
 
 </resources>

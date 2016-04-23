@@ -5,6 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -43,9 +44,9 @@ public class MainActivity extends Activity {
 		
 		tos = Toast.makeText(this,"",Toast.LENGTH_SHORT);
 		// 1. 產生拖拉監聽器物件
-		imgListener = new DragImgListener(tos);
+		imgListener = new DragImgListener(tos, viewMap);
 		DragImgListener.score = 0;
-		DragImgListener.position = new PositionMatrix();
+		imgListener.position = new PositionMatrix();
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器
 		brown_rectangle = (ImageView) findViewById(R.id.brown_rectangle);
 		brown_rectangle.setOnTouchListener(imgListener);
@@ -169,5 +170,13 @@ public class MainActivity extends Activity {
 		Log.e("yuanyu", "yuanyu[timertask]");
 	}
 	
+	/**
+	 * 跳至第二關
+	 * @param v
+	 */
+	public void gotoSecondLevel(View v){
+		Intent it = new Intent(this,SecondActivity.class);
+		startActivity(it);
+	}
 	
 }

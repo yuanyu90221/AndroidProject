@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.draggablepuzzledemo.MainActivity" >
+    tools:context="com.example.draggablepuzzledemo.SecondActivity" >
 
     <LinearLayout
-        android:id="@+id/topbar"
+        android:id="@+id/secondtopbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,7 +15,7 @@
 
 		<!-- 顯示 計時器UI -->
         <TextView 
-		    android:id="@+id/timer"
+		    android:id="@+id/secondTimer"
 		    android:layout_width="40dp"
 		    android:layout_height="20dp" 
 		    android:background="#0000ff"
@@ -23,8 +23,7 @@
 			android:text="00:00"/>
 
     </LinearLayout>
-
-    <ImageView
+     <ImageView
         android:id="@+id/draggbleRangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,65 +38,55 @@
         android:layout_marginLeft="60dp"
        	android:layout_marginTop="80dp"
         android:src="@drawable/target_region" />
-
-    <ImageView
-        android:id="@+id/brown_rectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/draggbleRangle"
-        android:layout_alignTop="@+id/draggbleRangle"
-        android:src="@drawable/brown_rectangle"
-       />
-
-    <ImageView
-        android:id="@+id/red_rectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/draggbleRangle"
-        android:layout_alignTop="@+id/draggbleRangle"
-        android:src="@drawable/red_rectangle" />
-
-    <Button
-        android:id="@+id/btnStopTimer"
+	
+     <Button
+        android:id="@+id/btnSecondStopTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="stopTimer"
+        android:onClick="stopSecondTimer"
         android:text="@string/btnStopName" />
 
     <Button
-        android:id="@+id/btnRestart"
+        android:id="@+id/btnSecondRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="restartTimer"
+        android:onClick="restartSecondTimer"
         android:text="@string/btnRestartName" />
 
     <ImageView
-        android:id="@+id/brown_down_lblock"
+        android:id="@+id/green_down_tblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/draggbleRangle"
+        android:src="@drawable/green_down_tblock" />
+
+    <ImageView
+        android:id="@+id/gray_right_tblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/draggbleRangle"
+        android:layout_alignTop="@+id/draggbleRangle"
+        android:src="@drawable/gray_right_tblock" />
+
+    <ImageView
+        android:id="@+id/blue_left_tblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/brown_down_lblock" />
+        android:src="@drawable/blue_left_tblock" />
 
     <ImageView
-        android:id="@+id/green_up_lblock"
+        android:id="@+id/red_up_tblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignRight="@+id/draggbleRangle"
-        android:src="@drawable/green_up_lblock" />
-
-    <Button
-        android:id="@+id/gotoSecondLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotoSecondLevel"
-        android:text="@string/secondLevel" />
+        android:src="@drawable/red_up_tblock" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.draggablepuzzledemo;
 
+import java.util.HashMap;
 import java.util.List;
 
 import android.util.Log;
@@ -24,7 +25,8 @@ public class DragImgListener implements OnTouchListener{
     public static int score = 0;
     public static final Cordinate scopeLeftUp = new Cordinate(3,4);
     public static final Cordinate scopeRightDown = new Cordinate(6,7);
-    public static PositionMatrix position = new PositionMatrix();
+    public PositionMatrix position = new PositionMatrix();
+    public HashMap<String, SelfDefImgView> viewMap; 
     
 	private Toast result;
 	
@@ -36,8 +38,9 @@ public class DragImgListener implements OnTouchListener{
 		this.result = result;
 	}
 	
-	public DragImgListener(Toast tos){
+	public DragImgListener(Toast tos, HashMap<String, SelfDefImgView> viewMap){
 		this.result = tos;
+		this.viewMap = viewMap;
 	}
 
 	@Override
@@ -68,7 +71,7 @@ public class DragImgListener implements OnTouchListener{
 			fx0 /= RANGE;
 			fy0 /= RANGE;
 			// 取得目前 所屬於 view 類型
-			SelfDefImgView sv = MainActivity.viewMap.get(vid);
+			SelfDefImgView sv = viewMap.get(vid);
 			Log.d("yuanyu", "yuanyu before change Pos sv : " + sv.toString());
 			// 取得目前的座標
 			Cordinate curpost = sv.getPosition();
