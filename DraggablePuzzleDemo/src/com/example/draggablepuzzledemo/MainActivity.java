@@ -1,5 +1,6 @@
 package com.example.draggablepuzzledemo;
 
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,10 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-
+	
 	//拖曳的方塊
 	ImageView brown_rectangle, red_rectangle;
-	
+	SelfDefImgView brown_rec, red_rec;
 	//拖拉監聽器
 	DragImgListener imgListener;
 	
@@ -32,6 +33,9 @@ public class MainActivity extends Activity {
 	private boolean isStartTimer = true;
 	
 	private Toast tos;
+	
+	public static HashMap<String, SelfDefImgView> viewMap = new HashMap<String, SelfDefImgView>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,10 +46,22 @@ public class MainActivity extends Activity {
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器
 		brown_rectangle = (ImageView) findViewById(R.id.brown_rectangle);
 		brown_rectangle.setOnTouchListener(imgListener);
-	
+		brown_rec = new SelfDefImgView();
+	    brown_rec.addCord(new Cordinate(0,0));
+	    brown_rec.addCord(new Cordinate(0,1));
+	    brown_rec.addCord(new Cordinate(0,2));
+	    brown_rec.addCord(new Cordinate(0,3));
+	    Log.d("occupiedList", "yuanyu List1: "+ brown_rec.toString());
+	    viewMap.put(String.valueOf(R.id.brown_rectangle),brown_rec);
 		red_rectangle = (ImageView) findViewById(R.id.red_rectangle);
 		red_rectangle.setOnTouchListener(imgListener);
-		
+		red_rec = new SelfDefImgView();
+		red_rec.addCord(new Cordinate(0,0));
+		red_rec.addCord(new Cordinate(0,1));
+		red_rec.addCord(new Cordinate(0,2));
+		red_rec.addCord(new Cordinate(0,3));
+		viewMap.put(String.valueOf(R.id.red_rectangle),red_rec);
+		Log.d("occupiedList", "yuanyu List1: "+ red_rec.toString());
 		// 3. 帶入計時器
 		txtTimer = (TextView) findViewById(R.id.timer);
 		timer = new Timer();
@@ -62,7 +78,7 @@ public class MainActivity extends Activity {
 				case 1:
 					// 計算目前時間
 					csec = tsec %60;
-					cmin = tsec /60;
+					cmin = (tsec /60)%60;
 					String resultTime = "",resultMin="", resultSec="";
 					resultMin = String.valueOf(cmin).length() > 1 ?
 							    String.valueOf(cmin):"0"+String.valueOf(cmin);

@@ -1,5 +1,7 @@
 package com.example.draggablepuzzledemo;
 
+import java.util.List;
+
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +20,6 @@ public class DragImgListener implements OnTouchListener{
     private static final int RANGE = 40;
     private static int fx0 = 0;
     private static int fy0 = 0;
-    private static int fx1 = 0;
-    private static int fy1 = 0;
     
     public static PositionMatrix position = new PositionMatrix();
     
@@ -40,7 +40,9 @@ public class DragImgListener implements OnTouchListener{
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		int tempFx = 0, tempFy = 0;
-		boolean changeFlag = true;
+		// 用來判斷屬於哪個view
+		String vid = String.valueOf(v.getId());
+		// 取得佔位置矩陣
 		PositionElement[][] resultPosition = position.getPosition();
 		// 判斷觸控事件
 		switch (event.getAction()) {
@@ -48,11 +50,10 @@ public class DragImgListener implements OnTouchListener{
 			// rowx, rowy為游標與畫面相對左上角座標
 			rowx = event.getRawX();
 			rowy = event.getRawY();
-			// v.getTop()是被拖拉圖層頂端與畫面最上層的距離
-			// event.getX()該被拖拉圖形的x軸位置
+			// v.getTop()是被拖拉圖層頂端與畫面最上層
 			x = event.getX();
 			y = rowy - v.getTop(); // event.getY();
-
+			
 		case MotionEvent.ACTION_MOVE:// 移動圖片時
 			// 把游標所在的座標減去 圖形被拖拉的座標 即是移動的位置
 			mx = (int) (event.getRawX() - x);
@@ -60,48 +61,31 @@ public class DragImgListener implements OnTouchListener{
 			// 算出整數格移動
 			tempFx = (mx/RANGE);
 			tempFy = (my/RANGE);
+			// 保存之前的值
 			fx0 /= RANGE;
 			fy0 /= RANGE;
-			if(tempFx != fx0 || tempFy != fy0){
-				if((fx0 >= 0 && fx0 < 39) && (fy0 >= 0 && fy0 < 36) &&
-					(tempFx >= 0 && tempFx < 36) && (tempFy >= 0 && tempFy < 36)){
-					if(resultPosition[fy0][fx0].isOccupied()){
-						
-//						position.changeValue(fx0, fy0, false);
-//						position.changeValue(tempFx, tempFy, true);
-						for(int targetx = tempFx,targety = tempFy; targety < tempFy+4 ; targety++){
-							if(resultPosition[targety][targetx].isOccupied()){
-								changeFlag = false;
-								break;
-							}
-						}
-						if(changeFlag){
-							ChangeRec(fx0, fy0, tempFx, tempFy);
-						}
-					}
-					else{
-						for(int targetx = tempFx,targety = tempFy; targety < tempFy+4 ; targety++){
-							if(resultPosition[targety][targetx].isOccupied()){
-								changeFlag = false;
-								break;
-							}
-						}
-//						ChangeRec(fx0, fy0, tempFx, tempFy);
-//						position.changeValue(tempFx, tempFy, true);
-						if(changeFlag){
-							ChangeRec(fx0, fy0, tempFx, tempFy);
-						}
-					}
-				}
-				if(changeFlag){
+			// 取得目前 所屬於 view 類型
+			SelfDefImgView sv = MainActivity.viewMap.get(vid);
+			Log.d("yuanyu", "yuanyu before change Pos sv : " + sv.toString());
+			// 取得目前的座標
+			Cordinate curpost = sv.getPosition();
+			// 檢查拖拉範圍
+			if(tempFx >= 0 && tempFx < 36 && tempFy >= 0 && tempFy < 36){
+				// 檢查被拖拉的目標是否已經被占住了
+				if(checkRec(tempFx,tempFy,resultPosition, sv.occupiedSpaceList)){
+					changeRec(curpost.xindex, curpost.yindex, tempFx, tempFy,sv.occupiedSpaceList);
+					sv.setPosition(new Cordinate(tempFx, tempFy));
+					Log.d("yuanyu", "yuanyu sv:"+ sv.toString());
 					fx0 = tempFx;
 					fy0 = tempFy;
 				}
+				else{
+					fx0 = curpost.xindex;
+					fy0 = curpost.yindex;
+				}
 			}
-			fx1 = (mx + v.getWidth())/RANGE;
-			fy1 = (my+ v.getHeight())/RANGE;
-			
-			String cod = String.format("(fx0,fy0) = (%d, %d),\n (fx1, fy1) = (%d, %d)",fx0 , fy0, fx1, fy1);
+				
+			String cod = String.format("(fx0,fy0) = (%d, %d),\n ",fx0 , fy0);
 			
 			result.setText(cod);
 			result.show();
@@ -119,11 +103,20 @@ public class DragImgListener implements OnTouchListener{
 		return true;
 	}
 	
-	private void ChangeRec(int orgw, int orgh, int tagw, int tagh){
-		for(int i = 0 ; i <4 ;i++){
-			position.changeValue(orgw, orgh+i, false);
-			position.changeValue(tagw, tagh+i, true);
+	private void changeRec(int orgw, int orgh, int tagw, int tagh,List<Cordinate> occpuiedList){
+		for(Cordinate offset : occpuiedList){
+			position.changeValue(orgw + offset.xindex, orgh+ offset.yindex, false);
+			position.changeValue(tagw + offset.xindex, tagh+ offset.yindex, true);
 		}
+	}
+	
+	private boolean checkRec(int orgw, int orgh,PositionElement[][] resultPosition, List<Cordinate> occpuiedList){
+		for(Cordinate offset : occpuiedList){
+			if(resultPosition[orgw + offset.xindex][orgh+offset.yindex].isOccupied()){
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

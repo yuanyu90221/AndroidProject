@@ -25,14 +25,7 @@ public class PositionMatrix {
     			position[i][j] = new PositionElement();
     		}
     	}
-    	position[0][1].setOccupied(true);
-    	position[0][2].setOccupied(true);
-    	position[0][3].setOccupied(true);
-    	position[0][4].setOccupied(true);
-    	position[19][1].setOccupied(true);
-    	position[19][2].setOccupied(true);
-    	position[19][3].setOccupied(true);
-    	position[19][4].setOccupied(true);
+    	
     }
 	public PositionElement[][] getPosition() {
 		return position;
@@ -42,27 +35,31 @@ public class PositionMatrix {
 		this.position = position;
 	}
 	
+	/**
+	 * 用來改變矩陣 true false的函式
+	 * @param w
+	 * @param h
+	 * @param changeValue
+	 */
 	public void changeValue(int w, int h, boolean changeValue){
-		
-		String searchKey = String.valueOf(h) + String.valueOf(w);
+		// 先找取出searchKey 
+		String searchKey = String.valueOf(w) + String.valueOf(h);
 		Log.e("changeValue", "changeValue " + searchKey);
 		PositionElement pe = hasValue.get(searchKey);
-		
+		// find no
 		if (pe == null) {
-			if(changeValue){
+			if(changeValue){				
 				hasValue.put(searchKey,position[w][h]);
 			}
 		} else {
 			if (pe.isOccupied() && !changeValue) {
 				hasValue.remove(searchKey);
 			}
-			else{
-				
-			}
 		}
-		position[h][w].setOccupied(changeValue);
-		position[h][w].setHeight(h);
-		position[h][w].setWidth(w);
+		// Change Value
+		position[w][h].setOccupied(changeValue);
+		position[w][h].setHeight(h);
+		position[w][h].setWidth(w);
 	}
 
 	@Override
