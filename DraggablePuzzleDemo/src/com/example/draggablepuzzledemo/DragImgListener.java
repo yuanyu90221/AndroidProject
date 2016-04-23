@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.TextView;
 import android.widget.Toast;
 /**
  * @description 拖拉監聽器 用來監聽物件移動

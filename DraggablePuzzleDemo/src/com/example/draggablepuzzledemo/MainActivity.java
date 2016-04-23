@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		tos = Toast.makeText(this,"",Toast.LENGTH_SHORT);
 		// 1. 產生拖拉監聽器物件
 		imgListener = new DragImgListener(tos);
@@ -88,6 +89,13 @@ public class MainActivity extends Activity {
 		timer = new Timer();
 		//設定Timer(task為執行內容，0代表立刻開始,間格1秒執行一次)
 		timer.schedule(task, 0,1000);
+		
+		// 將計時器歸零
+		tsec=0;
+		//TextView 初始化
+		txtTimer.setText("00:00");
+	    // 開啟flag
+		isStartTimer = true;
 	
 	}	
 	//TimerTask無法直接改變元件因此要透過Handler來當橋樑
