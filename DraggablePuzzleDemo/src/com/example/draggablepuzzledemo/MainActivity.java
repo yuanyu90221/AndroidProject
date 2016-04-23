@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 	//          目前累計秒數         顯示秒數                顯示分鐘數
 	private int tsec = 0,  csec =0 , cmin =0;
 	// 啟動計時器flag
-	private boolean isStartTimer = true;
+	public static boolean isStartTimer = true;
 	
 	private Toast tos;
 	

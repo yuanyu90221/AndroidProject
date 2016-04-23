@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.TextView;
 import android.widget.Toast;
 /**
  * @description 拖拉監聽器 用來監聽物件移動
@@ -20,7 +21,10 @@ public class DragImgListener implements OnTouchListener{
     private static final int RANGE = 40;
     private static int fx0 = 0;
     private static int fy0 = 0;
-    
+    // 計算在目標方格內的格數
+    public static int score = 0;
+    public static final Cordinate scopeLeftUp = new Cordinate(3,4);
+    public static final Cordinate scopeRightDown = new Cordinate(7,8);
     public static PositionMatrix position = new PositionMatrix();
     
 	private Toast result;
@@ -85,8 +89,12 @@ public class DragImgListener implements OnTouchListener{
 				}
 			}
 				
-			String cod = String.format("(fx0,fy0) = (%d, %d),\n ",fx0 , fy0);
-			
+			String cod = String.format("(fx0,fy0) = (%d, %d),\n score = %d",fx0 , fy0, score);
+			if(score == 16){
+				
+				cod+= String.format("(fx0,fy0) = (%d, %d),\n score = %d, you win! time ",fx0 , fy0, score);
+				MainActivity.isStartTimer = false;
+			}
 			result.setText(cod);
 			result.show();
 			fx0 *= RANGE;
@@ -107,6 +115,14 @@ public class DragImgListener implements OnTouchListener{
 		for(Cordinate offset : occpuiedList){
 			position.changeValue(orgw + offset.xindex, orgh+ offset.yindex, false);
 			position.changeValue(tagw + offset.xindex, tagh+ offset.yindex, true);
+			if (scopeLeftUp.xindex <= orgw + offset.xindex && scopeRightDown.xindex >= orgw + offset.xindex
+					&& scopeLeftUp.yindex <= orgh + offset.yindex && scopeRightDown.yindex >= orgh + offset.yindex) {
+				score -= 1;
+			}
+			if (scopeLeftUp.xindex <= tagw + offset.xindex && scopeRightDown.xindex >= tagw + offset.xindex
+					&& scopeLeftUp.yindex <= tagh + offset.yindex && scopeRightDown.yindex >= tagh + offset.yindex) {
+				score += 1;
+			}
 		}
 	}
 	

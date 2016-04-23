@@ -31,6 +31,14 @@
        	android:layout_marginLeft="0dp"
        	android:layout_marginTop="20dp"
         android:src="@drawable/draggable_range" />
+    
+     <ImageView
+        android:id="@+id/target_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"      
+        android:layout_marginLeft="60dp"
+       	android:layout_marginTop="80dp"
+        android:src="@drawable/target_region" />
 
     <ImageView
         android:id="@+id/brown_rectangle"
@@ -82,5 +90,7 @@
         android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignRight="@+id/draggbleRangle"
         android:src="@drawable/green_up_lblock" />
+
+   
 
 </RelativeLayout>
