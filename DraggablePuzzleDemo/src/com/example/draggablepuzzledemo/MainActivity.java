@@ -17,8 +17,8 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	
 	//拖曳的方塊
-	ImageView brown_rectangle, red_rectangle;
-	SelfDefImgView brown_rec, red_rec;
+	ImageView brown_rectangle, red_rectangle, brown_down_lblock, green_up_lblock;
+	SelfDefImgView brown_rec, red_rec, brown_down_l, greep_up_l;
 	//拖拉監聽器
 	DragImgListener imgListener;
 	
@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
 	    brown_rec.addCord(new Cordinate(0,3));
 	    Log.d("occupiedList", "yuanyu List1: "+ brown_rec.toString());
 	    viewMap.put(String.valueOf(R.id.brown_rectangle),brown_rec);
+	    
 		red_rectangle = (ImageView) findViewById(R.id.red_rectangle);
 		red_rectangle.setOnTouchListener(imgListener);
 		red_rec = new SelfDefImgView();
@@ -61,6 +62,24 @@ public class MainActivity extends Activity {
 		red_rec.addCord(new Cordinate(0,2));
 		red_rec.addCord(new Cordinate(0,3));
 		viewMap.put(String.valueOf(R.id.red_rectangle),red_rec);
+		
+		brown_down_lblock = (ImageView) findViewById(R.id.brown_down_lblock);
+		brown_down_lblock.setOnTouchListener(imgListener);
+		brown_down_l = new SelfDefImgView();
+		brown_down_l.addCord(new Cordinate(0,0));
+		brown_down_l.addCord(new Cordinate(0,1));
+		brown_down_l.addCord(new Cordinate(0,2));
+		brown_down_l.addCord(new Cordinate(1,2));
+		viewMap.put(String.valueOf(R.id.brown_down_lblock),brown_down_l);
+		
+		green_up_lblock = (ImageView) findViewById(R.id.green_up_lblock);
+		green_up_lblock.setOnTouchListener(imgListener);
+		greep_up_l = new SelfDefImgView();
+		greep_up_l.addCord(new Cordinate(0,0));
+		greep_up_l.addCord(new Cordinate(1,0));
+		greep_up_l.addCord(new Cordinate(1,1));
+		greep_up_l.addCord(new Cordinate(1,2));
+		viewMap.put(String.valueOf(R.id.green_up_lblock),greep_up_l);
 		Log.d("occupiedList", "yuanyu List1: "+ red_rec.toString());
 		// 3. 帶入計時器
 		txtTimer = (TextView) findViewById(R.id.timer);

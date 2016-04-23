@@ -67,4 +67,20 @@
         android:onClick="restartTimer"
         android:text="@string/btnRestartName" />
 
+    <ImageView
+        android:id="@+id/brown_down_lblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/draggbleRangle"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/brown_down_lblock" />
+
+    <ImageView
+        android:id="@+id/green_up_lblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/draggbleRangle"
+        android:layout_alignRight="@+id/draggbleRangle"
+        android:src="@drawable/green_up_lblock" />
+
 </RelativeLayout>
