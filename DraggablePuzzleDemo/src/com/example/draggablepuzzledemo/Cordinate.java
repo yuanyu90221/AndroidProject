@@ -1,7 +1,7 @@
 package com.example.draggablepuzzledemo;
 
 /**
- * ¥Î¨Ó«O¦sindexªºª«¥ó
+ * ç”¨ä¾†ä¿å­˜indexçš„ç‰©ä»¶
  * 
  * @author yuanyu
  *
