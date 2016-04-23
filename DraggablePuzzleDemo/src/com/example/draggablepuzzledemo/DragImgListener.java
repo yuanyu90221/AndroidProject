@@ -24,7 +24,7 @@ public class DragImgListener implements OnTouchListener{
     // 計算在目標方格內的格數
     public static int score = 0;
     public static final Cordinate scopeLeftUp = new Cordinate(3,4);
-    public static final Cordinate scopeRightDown = new Cordinate(7,8);
+    public static final Cordinate scopeRightDown = new Cordinate(6,7);
     public static PositionMatrix position = new PositionMatrix();
     
 	private Toast result;
