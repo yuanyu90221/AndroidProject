@@ -1,5 +1,6 @@
 package com.example.draggablepuzzledemo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,10 +25,13 @@ public class DragImgListener implements OnTouchListener{
     private static int fy0 = 0;
     // 計算在目標方格內的格數
     public static int score = 0;
-    public static final Cordinate scopeLeftUp = new Cordinate(3,4);
-    public static final Cordinate scopeRightDown = new Cordinate(6,7);
+  
     public PositionMatrix position = new PositionMatrix();
     public HashMap<String, SelfDefImgView> viewMap;
+    // 用來確認的遊戲結束的分數
+    public static int checkValue = 0;
+    public static List<Cordinate> checkRange = new ArrayList<Cordinate>();
+    
     //用來記住目前所在的Activity
     public Activity renderActivity;
 	private Toast result;
@@ -40,10 +44,12 @@ public class DragImgListener implements OnTouchListener{
 		this.result = result;
 	}
 	
-	public DragImgListener(Toast tos, HashMap<String, SelfDefImgView> viewMap, Activity renderAct){
+	public DragImgListener(Toast tos, HashMap<String, SelfDefImgView> viewMap, Activity renderAct, List<Cordinate> checkRange){
 		this.result = tos;
 		this.viewMap = viewMap;
 		this.renderActivity = renderAct;
+		this.checkRange = checkRange;
+		this.checkValue = checkRange.size();
 	}
 
 	@Override
@@ -80,6 +86,7 @@ public class DragImgListener implements OnTouchListener{
 			Cordinate curpost = sv.getPosition();
 			// 檢查拖拉範圍
 			if(tempFx >= 0 && tempFx < 36 && tempFy >= 0 && tempFy < 36){
+				
 				// 檢查被拖拉的目標是否已經被占住了
 				if(checkRec(tempFx,tempFy,resultPosition, sv.occupiedSpaceList)){
 					changeRec(curpost.xindex, curpost.yindex, tempFx, tempFy,sv.occupiedSpaceList);
@@ -95,7 +102,7 @@ public class DragImgListener implements OnTouchListener{
 			}
 				
 			String cod = String.format("(fx0,fy0) = (%d, %d),\n score = %d",fx0 , fy0, score);
-			if(score == 16){
+			if(score == checkValue){
 				
 				cod+= String.format("(fx0,fy0) = (%d, %d),\n score = %d, you win! time ",fx0 , fy0, score);
 				if (renderActivity instanceof MainActivity) {
@@ -124,14 +131,15 @@ public class DragImgListener implements OnTouchListener{
 		for(Cordinate offset : occpuiedList){
 			position.changeValue(orgw + offset.xindex, orgh+ offset.yindex, false);
 			position.changeValue(tagw + offset.xindex, tagh+ offset.yindex, true);
-			if (scopeLeftUp.xindex <= orgw + offset.xindex && scopeRightDown.xindex >= orgw + offset.xindex
-					&& scopeLeftUp.yindex <= orgh + offset.yindex && scopeRightDown.yindex >= orgh + offset.yindex) {
+			Cordinate removeCord = new Cordinate(orgw + offset.xindex, orgh+ offset.yindex);
+			Cordinate addedCord = new Cordinate(tagw + offset.xindex, tagh+ offset.yindex);
+			if(checkRange.contains(removeCord)){
 				score -= 1;
 			}
-			if (scopeLeftUp.xindex <= tagw + offset.xindex && scopeRightDown.xindex >= tagw + offset.xindex
-					&& scopeLeftUp.yindex <= tagh + offset.yindex && scopeRightDown.yindex >= tagh + offset.yindex) {
+			if(checkRange.contains(addedCord)){
 				score += 1;
 			}
+
 		}
 	}
 	

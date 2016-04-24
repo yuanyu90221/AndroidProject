@@ -1,6 +1,8 @@
 package com.example.draggablepuzzledemo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,8 +42,15 @@ public class SecondActivity extends Activity {
 		setContentView(R.layout.activity_second);
 		
 		secondTos = Toast.makeText(this,"",Toast.LENGTH_SHORT);
+		// 0. 設定檢查範圍
+		List<Cordinate> secondCheckRange = new ArrayList<Cordinate>();
+		for(int i =3 ; i <=6 ; i++){
+			for(int j=4 ; j <=7; j++){
+				secondCheckRange.add(new Cordinate(i,j));
+			}
+		}
 		// 1. 產生拖拉監聽器物件
-		secondImgListener = new DragImgListener(secondTos, secondViewMap, this);
+		secondImgListener = new DragImgListener(secondTos, secondViewMap, this, secondCheckRange);
 		DragImgListener.score = 0;
 		secondImgListener.position = new PositionMatrix();
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器
