@@ -52,7 +52,7 @@ public class SecondActivity extends Activity {
 		}
 		// 1. 產生拖拉監聽器物件
 		secondImgListener = new DragImgListener(secondTos, secondViewMap, this, secondCheckRange);
-		DragImgListener.score = 0;
+		secondImgListener.score = 0;
 		secondImgListener.position = new PositionMatrix();
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器
 		green_down_tblock = (ImageView) findViewById(R.id.green_down_tblock);

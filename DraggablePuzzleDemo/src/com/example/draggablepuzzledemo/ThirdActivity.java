@@ -50,7 +50,7 @@ public class ThirdActivity extends Activity {
 		}
 		// 1. 產生拖拉監聽器物件
 		thirdImgListener = new DragImgListener(thirdTos, thirdViewMap, this, thirdCheckRange);
-		DragImgListener.score = 0;
+		thirdImgListener.score = 0;
 		thirdImgListener.position = new PositionMatrix(); 
 		// 2. 把要拖弋的圖層帶入,並且設置監聽器
 		green_nblock = (ImageView) findViewById(R.id.green_nblock);

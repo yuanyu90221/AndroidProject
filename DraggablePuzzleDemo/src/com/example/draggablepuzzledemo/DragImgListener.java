@@ -24,7 +24,7 @@ public class DragImgListener implements OnTouchListener{
     private static int fx0 = 0;
     private static int fy0 = 0;
     // 計算在目標方格內的格數
-    public static int score = 0;
+    public int score = 0;
   
     public PositionMatrix position = new PositionMatrix();
     public HashMap<String, SelfDefImgView> viewMap;
