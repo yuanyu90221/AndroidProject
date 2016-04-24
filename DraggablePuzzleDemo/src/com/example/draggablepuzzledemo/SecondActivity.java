@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -162,5 +163,15 @@ public class SecondActivity extends Activity {
 		secondTxtTimer.setText("00:00");
 	    // 開啟flag
 		isStartSecondTimer = true;
+	}
+	
+	/**
+	 * 跳至第三關
+	 * 
+	 * @param v
+	 */
+	public void gotoThirdLevel(View v) {
+		Intent it = new Intent(this, ThirdActivity.class);
+		startActivity(it);
 	}
 }

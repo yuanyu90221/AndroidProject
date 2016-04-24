@@ -107,8 +107,10 @@ public class DragImgListener implements OnTouchListener{
 				cod+= String.format("(fx0,fy0) = (%d, %d),\n score = %d, you win! time ",fx0 , fy0, score);
 				if (renderActivity instanceof MainActivity) {
 					MainActivity.isStartTimer = false;
-				} else {
+				} else if(renderActivity instanceof SecondActivity) {
 					SecondActivity.isStartSecondTimer = false;
+				} else if(renderActivity instanceof ThirdActivity){
+					ThirdActivity.isStartThirdTimer = false;
 				}
 			}
 			result.setText(cod);

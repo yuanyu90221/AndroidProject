@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.draggablepuzzledemo.SecondActivity" >
+    
+    tools:context="com.example.draggablepuzzledemo.ThirdActivity" >
 
-    <LinearLayout
-        android:id="@+id/secondtopbar"
+     <LinearLayout
+        android:id="@+id/thirdtopbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,7 +16,7 @@
 
 		<!-- 顯示 計時器UI -->
         <TextView 
-		    android:id="@+id/secondTimer"
+		    android:id="@+id/thirdTimer"
 		    android:layout_width="40dp"
 		    android:layout_height="20dp" 
 		    android:background="#0000ff"
@@ -23,7 +24,7 @@
 			android:text="00:00"/>
 
     </LinearLayout>
-     <ImageView
+    <ImageView
         android:id="@+id/draggbleRangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,64 +39,54 @@
         android:layout_marginLeft="60dp"
        	android:layout_marginTop="80dp"
         android:src="@drawable/target_region" />
-	
-     <Button
-        android:id="@+id/btnSecondStopTimer"
+	 <Button
+        android:id="@+id/btnThirdStopTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="stopSecondTimer"
+        android:onClick="stopThirdTimer"
         android:text="@string/btnStopName" />
 
     <Button
-        android:id="@+id/btnSecondRestart"
+        android:id="@+id/btnThirdRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="restartSecondTimer"
+        android:onClick="restartThirdTimer"
         android:text="@string/btnRestartName" />
 
     <ImageView
-        android:id="@+id/green_down_tblock"
+        android:id="@+id/green_nblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/draggbleRangle"
-        android:src="@drawable/green_down_tblock" />
+        android:src="@drawable/green_nblock" />
 
     <ImageView
-        android:id="@+id/gray_right_tblock"
+        android:id="@+id/pink_rightdown_corner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/draggbleRangle"
         android:layout_alignTop="@+id/draggbleRangle"
-        android:src="@drawable/gray_right_tblock" />
+        android:src="@drawable/pink_rightdown_corner" />
 
     <ImageView
-        android:id="@+id/blue_left_tblock"
+        android:id="@+id/red_long_tblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/blue_left_tblock" />
+        android:src="@drawable/red_long_tblock" />
 
     <ImageView
-        android:id="@+id/red_up_tblock"
+        android:id="@+id/orange_down_lblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignRight="@+id/draggbleRangle"
-        android:src="@drawable/red_up_tblock" />
-    
-    <Button
-        android:id="@+id/gotoThirdLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotoThirdLevel"
-        android:text="@string/thirdLevel" />
+        android:layout_below="@+id/target_region"
+        android:src="@drawable/orange_down_lblock" />
 
 </RelativeLayout>
