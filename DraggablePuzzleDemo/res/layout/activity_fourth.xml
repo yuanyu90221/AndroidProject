@@ -1,12 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    
-    tools:context="com.example.draggablepuzzledemo.ThirdActivity" >
-
-     <LinearLayout
-        android:id="@+id/thirdtopbar"
+    android:layout_height="fill_parent"   
+    tools:context="com.example.draggablepuzzledemo.FourthActivity" >
+	<LinearLayout
+        android:id="@+id/fourthtopbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,7 +14,7 @@
 
 		<!-- 顯示 計時器UI -->
         <TextView 
-		    android:id="@+id/thirdTimer"
+		    android:id="@+id/fourthTimer"
 		    android:layout_width="40dp"
 		    android:layout_height="20dp" 
 		    android:background="#0000ff"
@@ -24,7 +22,7 @@
 			android:text="00:00"/>
 
     </LinearLayout>
-    <ImageView
+	<ImageView
         android:id="@+id/draggbleRangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,62 +38,53 @@
        	android:layout_marginTop="80dp"
         android:src="@drawable/target_region" />
 	 <Button
-        android:id="@+id/btnThirdStopTimer"
+        android:id="@+id/btnFourthStopTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="stopThirdTimer"
+        android:onClick="stopFourthTimer"
         android:text="@string/btnStopName" />
 
     <Button
-        android:id="@+id/btnThirdRestart"
+        android:id="@+id/btnFourthRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="restartThirdTimer"
+        android:onClick="restartFourthTimer"
         android:text="@string/btnRestartName" />
 
     <ImageView
-        android:id="@+id/green_nblock"
+        android:id="@+id/green_down_tblock_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/draggbleRangle"
-        android:src="@drawable/green_nblock" />
+        android:src="@drawable/green_down_tblock" />
 
     <ImageView
-        android:id="@+id/pink_rightdown_corner"
+        android:id="@+id/gray_right_tblock_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/draggbleRangle"
         android:layout_alignTop="@+id/draggbleRangle"
-        android:src="@drawable/pink_rightdown_corner" />
+        android:src="@drawable/gray_right_tblock" />
 
     <ImageView
-        android:id="@+id/red_long_tblock"
+        android:id="@+id/purple_laydown_lblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/red_long_tblock" />
+        android:src="@drawable/purple_laydown_lblock" />
 
     <ImageView
-        android:id="@+id/orange_down_lblock"
+        android:id="@+id/blue_laydown_lblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignRight="@+id/draggbleRangle"
-        android:layout_below="@+id/target_region"
-        android:src="@drawable/orange_down_lblock" />
-
-    <Button
-        android:id="@+id/gotoFourthevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotoFourthLevel"
-        android:text="@string/fourthLevel" />
+        android:src="@drawable/blue_laydown_lblock" />
 
 </RelativeLayout>

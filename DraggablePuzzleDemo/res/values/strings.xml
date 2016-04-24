@@ -6,9 +6,10 @@
     <string name="btnStopName">停止計時</string>
     <string name="btnRestartName">重新計時</string>
     <string name="title_activity_second">SecondActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="secondLevel">前往第二關</string>
     <string name="title_activity_third">ThirdActivity</string>
     <string name="thirdLevel">前往第三關</string>
+    <string name="title_activity_fourth">FourthActivity</string>
+    <string name="fourthLevel">前往第4關</string>
 
 </resources>

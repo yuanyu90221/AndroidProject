@@ -26,10 +26,13 @@
             android:name=".SecondActivity"
             android:label="@string/title_activity_second" >
         </activity>
-        
         <activity
             android:name=".ThirdActivity"
             android:label="@string/title_activity_third" >
+        </activity>
+        <activity
+            android:name=".FourthActivity"
+            android:label="@string/title_activity_fourth" >
         </activity>
     </application>
 

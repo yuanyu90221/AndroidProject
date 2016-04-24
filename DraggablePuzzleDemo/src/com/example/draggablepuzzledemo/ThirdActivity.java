@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -102,51 +103,59 @@ public class ThirdActivity extends Activity {
 	}
 	
 	//TimerTask無法直接改變元件因此要透過Handler來當橋樑
-		private Handler handler =  new Handler(){
+	private Handler handler =  new Handler(){
 
-			@Override
-			public void handleMessage(Message msg) {
-				switch(msg.what){
-					case 1:
-						// 計算目前時間
-						csec = tsec %60;
-						cmin = (tsec /60)%60;
-						String resultTime = "",resultMin="", resultSec="";
-						resultMin = String.valueOf(cmin).length() > 1 ?
-								    String.valueOf(cmin):"0"+String.valueOf(cmin);
-						resultSec = String.valueOf(csec).length() > 1 ?
-							    	String.valueOf(csec):"0"+String.valueOf(csec);
-						resultTime = resultMin + ":"+ resultSec;
-						thirdTxtTimer.setText(resultTime);
-						break;
-				}
+		@Override
+		public void handleMessage(Message msg) {
+			switch(msg.what){
+				case 1:
+					// 計算目前時間
+					csec = tsec %60;
+					cmin = (tsec /60)%60;
+					String resultTime = "",resultMin="", resultSec="";
+					resultMin = String.valueOf(cmin).length() > 1 ?
+							    String.valueOf(cmin):"0"+String.valueOf(cmin);
+					resultSec = String.valueOf(csec).length() > 1 ?
+						    	String.valueOf(csec):"0"+String.valueOf(csec);
+					resultTime = resultMin + ":"+ resultSec;
+					thirdTxtTimer.setText(resultTime);
+					break;
 			}
-			
-		};
-		/**
-		 * TimerTask 用來做計時器功能的thread
-		 */
-		private TimerTask task = new TimerTask(){
+		}
+		
+	};
+	/**
+	 * TimerTask 用來做計時器功能的thread
+	 */
+	private TimerTask task = new TimerTask(){
 
-			@Override
-			public void run() {
-				if(isStartThirdTimer){
-					//如果startflag是true則每秒tsec+1
-					tsec++;
-					Message message = new Message();
-					 
-					//傳送訊息1
-					message.what =1;
-					handler.sendMessage(message);
-				}			
-			}
-			
-		};
+		@Override
+		public void run() {
+			if(isStartThirdTimer){
+				//如果startflag是true則每秒tsec+1
+				tsec++;
+				Message message = new Message();
+				 
+				//傳送訊息1
+				message.what =1;
+				handler.sendMessage(message);
+			}			
+		}
+		
+	};
 
+	/**
+	 * stop thirdTimer
+	 * @param v
+	 */
 	public void stopThirdTimer(View v){
 		isStartThirdTimer = false;
 	}
 	
+	/**
+	 * restart thirdTimer
+	 * @param v
+	 */
 	public void restartThirdTimer(View v){
 		// 將計時器歸零
 		tsec=0;
@@ -154,5 +163,15 @@ public class ThirdActivity extends Activity {
 		thirdTxtTimer.setText("00:00");
 	    // 開啟flag
 		isStartThirdTimer = true;
+	}
+	
+	
+	/**
+	 * goto 4th Level 
+	 * @param v
+	 */
+	public void gotoFourthLevel(View v){
+		Intent it = new Intent(this, FourthActivity.class);
+		startActivity(it);
 	}
 }
