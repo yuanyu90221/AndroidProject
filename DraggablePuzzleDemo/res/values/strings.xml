@@ -11,5 +11,7 @@
     <string name="thirdLevel">前往第三關</string>
     <string name="title_activity_fourth">FourthActivity</string>
     <string name="fourthLevel">前往第4關</string>
-
+    <string name="title_activity_fifth">FifthActivity</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="fifthLevel">前往第5關</string>
 </resources>

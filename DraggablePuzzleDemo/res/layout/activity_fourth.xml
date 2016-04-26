@@ -86,5 +86,14 @@
         android:layout_alignBottom="@+id/draggbleRangle"
         android:layout_alignRight="@+id/draggbleRangle"
         android:src="@drawable/blue_laydown_lblock" />
+    
+    <Button
+        android:id="@+id/gotoFithLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoFifthLevel"
+        android:text="@string/fifthLevel" />
 
 </RelativeLayout>

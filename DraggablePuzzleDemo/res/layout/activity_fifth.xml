@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.draggablepuzzledemo.FifthActivity" >
+	
+    <LinearLayout
+        android:id="@+id/fifthtopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#888888"
+        android:orientation="horizontal" >
+
+		<!-- 顯示 計時器UI -->
+        <TextView 
+		    android:id="@+id/fifthTimer"
+		    android:layout_width="40dp"
+		    android:layout_height="20dp" 
+		    android:background="#0000ff"
+			android:textColor="#00ff00"
+			android:text="00:00"/>
+
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/draggbleRangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_marginLeft="0dp"
+       	android:layout_marginTop="20dp"
+        android:src="@drawable/draggable_range" />
+    
+     <ImageView
+        android:id="@+id/target_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"      
+        android:layout_marginLeft="60dp"
+       	android:layout_marginTop="80dp"
+        android:src="@drawable/target_region" />
+	 <Button
+        android:id="@+id/btnFifthStopTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="stopFifthTimer"
+        android:text="@string/btnStopName" />
+	 
+	  <Button
+        android:id="@+id/btnFifthRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="restartFifthTimer"
+        android:text="@string/btnRestartName" />
+
+	  <ImageView
+	      android:id="@+id/purple_leftdown_lblock"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignParentLeft="true"
+	      android:layout_alignTop="@+id/draggbleRangle"
+	      android:src="@drawable/purple_leftdown_lblock" />
+
+	  <ImageView
+	      android:id="@+id/lightgreen_rightdown_lblock"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignRight="@+id/draggbleRangle"
+	      android:layout_alignTop="@+id/draggbleRangle"
+	      android:src="@drawable/lightgreen_rightdown_lblock" />
+
+	  <ImageView
+	      android:id="@+id/gray_square_2_block"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignBottom="@+id/draggbleRangle"
+	      android:layout_alignParentLeft="true"
+	      android:src="@drawable/gray_square_2_block" />
+
+	  <ImageView
+	      android:id="@+id/red_verticallong_block"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignBottom="@+id/draggbleRangle"
+	      android:layout_alignRight="@+id/draggbleRangle"
+	      android:src="@drawable/red_verticallong_block" />
+
+</RelativeLayout>

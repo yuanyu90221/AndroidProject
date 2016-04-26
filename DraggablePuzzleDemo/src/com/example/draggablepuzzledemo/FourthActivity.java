@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -170,7 +171,8 @@ public class FourthActivity extends Activity {
 	 * goto 5th Level 
 	 * @param v
 	 */
-	public void gotoFivethLevel(View v){
-		
+	public void gotoFifthLevel(View v){
+		Intent it = new Intent(this, FifthActivity.class);
+		startActivity(it);
 	}
 }
