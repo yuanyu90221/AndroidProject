@@ -117,6 +117,8 @@ public class DragImgListener implements OnTouchListener{
 					FifthActivity.isStartFifthTimer = false;
 				} else if(renderActivity instanceof SixthActivity){
 					SixthActivity.isStartSixthTimer = false;
+				} else if(renderActivity instanceof SevenActivity){
+					SevenActivity.isStartSeventhTimer = false;
 				}
 			}
 			result.setText(cod);

@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+  	android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.draggablepuzzledemo.SixthActivity" >
+    tools:context="com.example.draggablepuzzledemo.SevenActivity" >
 
-   <LinearLayout
-        android:id="@+id/sixthtopbar"
+    <LinearLayout
+        android:id="@+id/seventhtopbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,7 +15,7 @@
 
 		<!-- 顯示 計時器UI -->
         <TextView 
-		    android:id="@+id/sixthTimer"
+		    android:id="@+id/seventhTimer"
 		    android:layout_width="40dp"
 		    android:layout_height="20dp" 
 		    android:background="#0000ff"
@@ -23,8 +23,7 @@
 			android:text="00:00"/>
 
     </LinearLayout>
-
-   	<ImageView
+    <ImageView
    	    android:id="@+id/draggbleRangle_5_5"
    	    android:layout_width="wrap_content"
    	    android:layout_height="wrap_content"
@@ -39,81 +38,71 @@
          android:layout_marginLeft="60dp"
          android:layout_marginTop="80dp"
          android:src="@drawable/target_region_5_5" />
-
-	 <Button
-        android:id="@+id/btnSixthStopTimer"
+     
+     <Button
+        android:id="@+id/btnSeventhStopTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="stopSixthTimer"
+        android:onClick="stopSeventhTimer"
         android:text="@string/btnStopName" />
 	 
 	  <Button
-        android:id="@+id/btnSixthRestart"
+        android:id="@+id/btnSeventhRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="restartSixthTimer"
+        android:onClick="restartSeventhTimer"
         android:text="@string/btnRestartName" />
 
 	  <ImageView
-	      android:id="@+id/lightblue_leftdown_lblock"
+	      android:id="@+id/brown_vertical_block"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignParentLeft="true"
-	      android:layout_below="@+id/sixthtopbar"
-	      android:src="@drawable/lightblue_leftdown_lblock" />
+	      android:layout_alignTop="@+id/draggbleRangle_5_5"
+	      android:src="@drawable/brown_rectangle" />
 
 	  <ImageView
-	      android:id="@+id/yellow_n_block"
-	      android:layout_width="wrap_content"
-	      android:layout_height="wrap_content"
-	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
-	      android:layout_alignParentLeft="true"
-	      android:src="@drawable/yellow_n_block" />
-
-	  <ImageView
-	      android:id="@+id/green_laydown_leftup_lblock"
+	      android:id="@+id/red_long_tblock_1"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignLeft="@+id/target_region_5_5"
 	      android:layout_alignTop="@+id/draggbleRangle_5_5"
-	      android:layout_marginLeft="18dp"
-	      android:src="@drawable/green_laydown_leftup_lblock" />
+	      android:src="@drawable/red_long_tblock" />
 
 	  <ImageView
-	      android:id="@+id/brown_square_2_block"
+	      android:id="@+id/gray_short_right_tblock"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignRight="@+id/draggbleRangle_5_5"
 	      android:layout_alignTop="@+id/draggbleRangle_5_5"
-	      android:src="@drawable/brown_square_2_block" />
+	      android:src="@drawable/gray_right_tblock" />
 
 	  <ImageView
-	      android:id="@+id/lightgreen_leftup_lblock"
+	      android:id="@+id/blue_horizontal_block"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
+	      android:layout_alignParentLeft="true"
+	      android:src="@drawable/blue_laydown_lblock" />
+
+	  <ImageView
+	      android:id="@+id/orange_leftdown_lblock"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
+	      android:layout_alignRight="@+id/target_region_5_5"
+	      android:src="@drawable/brown_down_lblock" />
+
+	  <ImageView
+	      android:id="@+id/pink_n_block"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
 	      android:layout_alignRight="@+id/draggbleRangle_5_5"
-	      android:src="@drawable/lightgreen_leftup_lblock" />
+	      android:src="@drawable/pink_n_block" />
 
-	  <ImageView
-	      android:id="@+id/green_rightup_lblock"
-	      android:layout_width="wrap_content"
-	      android:layout_height="wrap_content"
-	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
-	      android:layout_alignRight="@+id/green_laydown_leftup_lblock"
-	      android:src="@drawable/green_up_lblock" />
-
-	  <Button
-        android:id="@+id/gotoSeventhLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotoSeventhLevel"
-        android:text="@string/seventhLevel" />
-	  
 </RelativeLayout>

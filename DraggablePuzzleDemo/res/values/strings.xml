@@ -15,5 +15,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="fifthLevel">前往第5關</string>
     <string name="title_activity_sixth">SixthActivity</string>
-	<string name="sixthLevel">前往第6關</string>
+    <string name="sixthLevel">前往第6關</string>
+    <string name="title_activity_seven">SevenActivity</string>
+	<string name="seventhLevel">前往第7關</string>
 </resources>

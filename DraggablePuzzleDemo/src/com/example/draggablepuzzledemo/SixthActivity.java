@@ -7,11 +7,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -191,5 +190,14 @@ public class SixthActivity extends Activity {
 		sixthTxtTimer.setText("00:00");
 	    // ¶}±Òflag
 		isStartSixthTimer = true;
+	}
+	
+	/**
+	 * goto 7th level
+	 * @param v
+	 */
+	public void gotoSeventhLevel(View v){
+		Intent it = new Intent(this, SevenActivity.class);
+		startActivity(it);
 	}
 }
