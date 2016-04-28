@@ -29,8 +29,8 @@ public class DragImgListener implements OnTouchListener{
     public PositionMatrix position = new PositionMatrix();
     public HashMap<String, SelfDefImgView> viewMap;
     // 用來確認的遊戲結束的分數
-    public static int checkValue = 0;
-    public static List<Cordinate> checkRange = new ArrayList<Cordinate>();
+    public int checkValue = 0;
+    public List<Cordinate> checkRange = new ArrayList<Cordinate>();
     
     //用來記住目前所在的Activity
     public Activity renderActivity;

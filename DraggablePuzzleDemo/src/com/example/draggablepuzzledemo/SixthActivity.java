@@ -66,7 +66,7 @@ public class SixthActivity extends Activity {
 		lightblue_leftdown_l.addCord(new Cordinate(1,2));
 		lightblue_leftdown_l.addCord(new Cordinate(2,2));
 		sixthViewMap.put(String.valueOf(R.id.lightblue_leftdown_lblock), lightblue_leftdown_l);
-		sixthImgListener.changeRec(0, 1, 0, 1, lightblue_leftdown_l.occupiedSpaceList);
+		
 		
 		green_laydown_leftup_lblock = (ImageView) findViewById(R.id.green_laydown_leftup_lblock);
 		green_laydown_leftup_lblock.setOnTouchListener(sixthImgListener);
@@ -76,7 +76,7 @@ public class SixthActivity extends Activity {
 		green_laydown_leftup_l.addCord(new Cordinate(2,0));
 		green_laydown_leftup_l.addCord(new Cordinate(0,1));
 		sixthViewMap.put(String.valueOf(R.id.green_laydown_leftup_lblock), green_laydown_leftup_l);
-		sixthImgListener.changeRec(4, 1, 4, 1, green_laydown_leftup_l.occupiedSpaceList);
+		
 		
 		brown_square_2_block = (ImageView) findViewById(R.id.brown_square_2_block);
 		brown_square_2_block.setOnTouchListener(sixthImgListener);
@@ -86,7 +86,7 @@ public class SixthActivity extends Activity {
 		brown_square_2.addCord(new Cordinate(1,0));
 		brown_square_2.addCord(new Cordinate(1,1));
 		sixthViewMap.put(String.valueOf(R.id.brown_square_2_block), brown_square_2);
-		sixthImgListener.changeRec(10, 1, 10, 1, brown_square_2.occupiedSpaceList);
+	
 		
 		yellow_n_block = (ImageView) findViewById(R.id.yellow_n_block);
 		yellow_n_block.setOnTouchListener(sixthImgListener);
@@ -96,7 +96,7 @@ public class SixthActivity extends Activity {
 		yellow_n.addCord(new Cordinate(1, 1));
 		yellow_n.addCord(new Cordinate(0, 2));
 		sixthViewMap.put(String.valueOf(R.id.yellow_n_block), yellow_n);
-		sixthImgListener.changeRec(0, 10, 0, 10, yellow_n.occupiedSpaceList);
+		
 		
 		green_rightup_lblock = (ImageView) findViewById(R.id.green_rightup_lblock);
 		green_rightup_lblock.setOnTouchListener(sixthImgListener);
@@ -106,7 +106,7 @@ public class SixthActivity extends Activity {
 		green_rightup_l.addCord(new Cordinate(1,1));
 		green_rightup_l.addCord(new Cordinate(1,2));
 		sixthViewMap.put(String.valueOf(R.id.green_rightup_lblock), green_rightup_l);
-		sixthImgListener.changeRec(4, 10, 4, 10, green_rightup_l.occupiedSpaceList);
+		
 		
 		lightgreen_leftup_lblock = (ImageView) findViewById(R.id.lightgreen_leftup_lblock);
 		lightgreen_leftup_lblock.setOnTouchListener(sixthImgListener);
@@ -116,7 +116,7 @@ public class SixthActivity extends Activity {
 		lightgreen_leftup_l.addCord(new Cordinate(0,2));
 		lightgreen_leftup_l.addCord(new Cordinate(1,0));
 		sixthViewMap.put(String.valueOf(R.id.lightgreen_leftup_lblock), lightgreen_leftup_l);
-		sixthImgListener.changeRec(10, 10, 10, 10, lightgreen_leftup_l.occupiedSpaceList);
+		
 		
 		// 3. 帶入計時器
 		sixthTxtTimer = (TextView) findViewById(R.id.sixthTimer);
