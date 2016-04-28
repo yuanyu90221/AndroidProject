@@ -104,7 +104,7 @@
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
-	      android:layout_toRightOf="@+id/btnSixthStopTimer"
+	      android:layout_alignRight="@+id/green_laydown_leftup_lblock"
 	      android:src="@drawable/green_up_lblock" />
 
 </RelativeLayout>

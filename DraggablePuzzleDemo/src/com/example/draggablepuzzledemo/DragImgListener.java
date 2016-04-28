@@ -135,7 +135,7 @@ public class DragImgListener implements OnTouchListener{
 		return true;
 	}
 	
-	private void changeRec(int orgw, int orgh, int tagw, int tagh,List<Cordinate> occpuiedList){
+	public void changeRec(int orgw, int orgh, int tagw, int tagh,List<Cordinate> occpuiedList){
 		for(Cordinate offset : occpuiedList){
 			position.changeValue(orgw + offset.xindex, orgh+ offset.yindex, false);
 			position.changeValue(tagw + offset.xindex, tagh+ offset.yindex, true);
@@ -151,7 +151,7 @@ public class DragImgListener implements OnTouchListener{
 		}
 	}
 	
-	private boolean checkRec(int orgw, int orgh,PositionElement[][] resultPosition, List<Cordinate> occpuiedList){
+	public boolean checkRec(int orgw, int orgh,PositionElement[][] resultPosition, List<Cordinate> occpuiedList){
 		for(Cordinate offset : occpuiedList){
 			if(resultPosition[orgw + offset.xindex][orgh+offset.yindex].isOccupied()){
 				return false;
