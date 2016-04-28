@@ -25,7 +25,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/draggbleRangle"
+        android:id="@+id/draggbleRangle_5_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
        	android:layout_marginLeft="0dp"
@@ -33,7 +33,7 @@
         android:src="@drawable/draggable_range" />
     
      <ImageView
-        android:id="@+id/target_region"
+        android:id="@+id/target_region_5_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"      
         android:layout_marginLeft="60dp"
@@ -44,8 +44,8 @@
         android:id="@+id/brown_rectangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/draggbleRangle"
-        android:layout_alignTop="@+id/draggbleRangle"
+        android:layout_alignLeft="@+id/draggbleRangle_5_5"
+        android:layout_alignTop="@+id/draggbleRangle_5_5"
         android:src="@drawable/brown_rectangle"
        />
 
@@ -53,8 +53,8 @@
         android:id="@+id/red_rectangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/draggbleRangle"
-        android:layout_alignTop="@+id/draggbleRangle"
+        android:layout_alignRight="@+id/draggbleRangle_5_5"
+        android:layout_alignTop="@+id/draggbleRangle_5_5"
         android:src="@drawable/red_rectangle" />
 
     <Button
@@ -79,7 +79,7 @@
         android:id="@+id/brown_down_lblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/draggbleRangle"
+        android:layout_alignBottom="@+id/draggbleRangle_5_5"
         android:layout_alignParentLeft="true"
         android:src="@drawable/brown_down_lblock" />
 
@@ -87,8 +87,8 @@
         android:id="@+id/green_up_lblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/draggbleRangle"
-        android:layout_alignRight="@+id/draggbleRangle"
+        android:layout_alignBottom="@+id/draggbleRangle_5_5"
+        android:layout_alignRight="@+id/draggbleRangle_5_5"
         android:src="@drawable/green_up_lblock" />
 
     <Button

@@ -24,7 +24,7 @@
 
     </LinearLayout>
      <ImageView
-        android:id="@+id/draggbleRangle"
+        android:id="@+id/draggbleRangle_5_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
        	android:layout_marginLeft="0dp"
@@ -32,7 +32,7 @@
         android:src="@drawable/draggable_range" />
     
      <ImageView
-        android:id="@+id/target_region"
+        android:id="@+id/target_region_5_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"      
         android:layout_marginLeft="60dp"
@@ -62,22 +62,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/draggbleRangle"
+        android:layout_alignTop="@+id/draggbleRangle_5_5"
         android:src="@drawable/green_down_tblock" />
 
     <ImageView
         android:id="@+id/gray_right_tblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/draggbleRangle"
-        android:layout_alignTop="@+id/draggbleRangle"
+        android:layout_alignRight="@+id/draggbleRangle_5_5"
+        android:layout_alignTop="@+id/draggbleRangle_5_5"
         android:src="@drawable/gray_right_tblock" />
 
     <ImageView
         android:id="@+id/blue_left_tblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/draggbleRangle"
+        android:layout_alignBottom="@+id/draggbleRangle_5_5"
         android:layout_alignParentLeft="true"
         android:src="@drawable/blue_left_tblock" />
 
@@ -85,8 +85,8 @@
         android:id="@+id/red_up_tblock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/draggbleRangle"
-        android:layout_alignRight="@+id/draggbleRangle"
+        android:layout_alignBottom="@+id/draggbleRangle_5_5"
+        android:layout_alignRight="@+id/draggbleRangle_5_5"
         android:src="@drawable/red_up_tblock" />
     
     <Button

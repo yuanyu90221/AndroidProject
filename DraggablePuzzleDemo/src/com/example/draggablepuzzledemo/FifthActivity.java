@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -164,5 +165,15 @@ public class FifthActivity extends Activity {
 		fifthTxtTimer.setText("00:00");
 	    // ¶}±Òflag
 		isStartFifthTimer = true;
+	}
+	
+	
+	/**
+	 * goto 6th level
+	 * @param v
+	 */
+	public void gotoSixfthLevel(View v){
+		Intent it = new Intent(this, SixthActivity.class);
+		startActivity(it);
 	}
 }
