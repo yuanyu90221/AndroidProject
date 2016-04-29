@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -163,7 +164,7 @@ public class SevenActivity extends Activity {
 		
 	};
 	/**
-	 * stop fifthTimer
+	 * stop seventhTimer
 	 * @param v
 	 */
 	public void stopSeventhTimer(View v){
@@ -172,7 +173,7 @@ public class SevenActivity extends Activity {
 	}
 	
 	/**
-	 * restart fifthTimer
+	 * restart seventhTimer
 	 * @param v
 	 */
 	public void restartSeventhTimer(View v){
@@ -182,6 +183,15 @@ public class SevenActivity extends Activity {
 		seventhTxtTimer.setText("00:00");
 	    // ¶}±Òflag
 		isStartSeventhTimer = true;
+	}
+	
+	/**
+	 * goto 8th level
+	 * @param v
+	 */
+	public void gotoEightthLevel(View v){
+		Intent it = new Intent(this, EightthActivity.class);
+		startActivity(it);
 	}
 	
 }

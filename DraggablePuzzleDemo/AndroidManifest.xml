@@ -46,6 +46,10 @@
             android:name=".SevenActivity"
             android:label="@string/title_activity_seven" >
         </activity>
+        <activity
+            android:name=".EightthActivity"
+            android:label="@string/title_activity_eightth" >
+        </activity>
     </application>
 
 </manifest>

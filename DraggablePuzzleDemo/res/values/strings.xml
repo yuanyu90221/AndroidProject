@@ -17,5 +17,7 @@
     <string name="title_activity_sixth">SixthActivity</string>
     <string name="sixthLevel">前往第6關</string>
     <string name="title_activity_seven">SevenActivity</string>
-	<string name="seventhLevel">前往第7關</string>
+    <string name="seventhLevel">前往第7關</string>
+    <string name="title_activity_eightth">EightthActivity</string>
+	<string name="eightthLevel">前往第8關</string>
 </resources>
