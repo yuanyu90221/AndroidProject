@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -182,5 +183,14 @@ public class EightthActivity extends Activity {
 		eightthTxtTimer.setText("00:00");
 	    // ¶}±Òflag
 		isStartEightthTimer = true;
+	}
+	
+	/**
+	 * goto 9th level
+	 * @param v
+	 */
+	public void gotoNinethLevel(View v){
+		Intent it = new Intent(this, NinethActivity.class);
+		startActivity(it);
 	}
 }

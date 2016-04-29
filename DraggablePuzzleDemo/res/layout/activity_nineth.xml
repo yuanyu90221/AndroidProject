@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+   	android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.draggablepuzzledemo.EightthActivity" >
+    tools:context="com.example.draggablepuzzledemo.NinethActivity" >
 
-     <LinearLayout
-        android:id="@+id/eightthtopbar"
+   <LinearLayout
+        android:id="@+id/ninethtopbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,7 +15,7 @@
 
 		<!-- 顯示 計時器UI -->
         <TextView 
-		    android:id="@+id/eightthTimer"
+		    android:id="@+id/ninethTimer"
 		    android:layout_width="40dp"
 		    android:layout_height="20dp" 
 		    android:background="#0000ff"
@@ -38,78 +38,70 @@
          android:layout_marginLeft="60dp"
          android:layout_marginTop="80dp"
          android:src="@drawable/target_region_5_5" />
-     <Button
-        android:id="@+id/btnEightthStopTimer"
+   <Button
+        android:id="@+id/btnNinethStopTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="stopEightthTimer"
+        android:onClick="stopNinethTimer"
         android:text="@string/btnStopName" />
 	 
 	  <Button
-        android:id="@+id/btnEightthRestart"
+        android:id="@+id/btnNinethRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="restartEightthTimer"
+        android:onClick="restartNinethTimer"
         android:text="@string/btnRestartName" />
 
 	  <ImageView
-	      android:id="@+id/blue_left_tblock_1"
+	      android:id="@+id/red_leftup_lblock_1"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignParentLeft="true"
-	      android:layout_below="@+id/eightthtopbar"
-	      android:src="@drawable/blue_left_tblock" />
+	      android:layout_alignTop="@+id/draggbleRangle_5_5"
+	      android:src="@drawable/red_leftup_lblock" />
 
 	  <ImageView
-	      android:id="@+id/green_down_tblock_2"
+	      android:id="@+id/gray_right_tblock_3"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
-	      android:layout_alignLeft="@+id/target_region_5_5"
-	      android:layout_below="@+id/eightthtopbar"
-	      android:src="@drawable/green_down_tblock" />
-
-	  <ImageView
-	      android:id="@+id/gray_right_tblock_2"
-	      android:layout_width="wrap_content"
-	      android:layout_height="wrap_content"
-	      android:layout_alignRight="@+id/draggbleRangle_5_5"
+	      android:layout_alignRight="@+id/target_region_5_5"
 	      android:layout_alignTop="@+id/draggbleRangle_5_5"
 	      android:src="@drawable/gray_right_tblock" />
 
 	  <ImageView
-	      android:id="@+id/green_short_ublock"
+	      android:id="@+id/green_up_lblock_1"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_alignRight="@+id/draggbleRangle_5_5"
+	      android:layout_alignTop="@+id/draggbleRangle_5_5"
+	      android:src="@drawable/green_up_lblock" />
+
+	  <ImageView
+	      android:id="@+id/green_short_ublock_1"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
-	      android:layout_toLeftOf="@+id/green_down_tblock_2"
+	      android:layout_alignParentLeft="true"
 	      android:src="@drawable/green_short_ublock" />
 
 	  <ImageView
-	      android:id="@+id/red_leftup_lblock"
+	      android:id="@+id/brown_square_2_block_1"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
 	      android:layout_alignRight="@+id/target_region_5_5"
-	      android:src="@drawable/red_leftup_lblock" />
+	      android:src="@drawable/brown_square_2_block" />
 
 	  <ImageView
-	      android:id="@+id/pink_square_2_block"
+	      android:id="@+id/gray_square_2_block_1"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
 	      android:layout_alignRight="@+id/draggbleRangle_5_5"
-	      android:src="@drawable/pink_square_2_block" />
-	  
-	  <Button
-        android:id="@+id/gotoNinethLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotoNinethLevel"
-        android:text="@string/ninethLevel" />
+	      android:src="@drawable/gray_square_2_block" />
+
 </RelativeLayout>

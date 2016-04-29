@@ -50,6 +50,10 @@
             android:name=".EightthActivity"
             android:label="@string/title_activity_eightth" >
         </activity>
+        <activity
+            android:name=".NinethActivity"
+            android:label="@string/title_activity_nineth" >
+        </activity>
     </application>
 
 </manifest>
