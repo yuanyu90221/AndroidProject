@@ -31,14 +31,14 @@
    	    android:layout_marginTop="20dp"
    	    android:src="@drawable/draggable_range_5_5" />
     
-     <ImageView
+    <ImageView
          android:id="@+id/target_region_5_5"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_marginLeft="60dp"
          android:layout_marginTop="80dp"
          android:src="@drawable/target_region_5_5" />
-   <Button
+   	<Button
         android:id="@+id/btnNinethStopTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         android:onClick="stopNinethTimer"
         android:text="@string/btnStopName" />
 	 
-	  <Button
+	<Button
         android:id="@+id/btnNinethRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,5 +103,12 @@
 	      android:layout_alignBottom="@+id/draggbleRangle_5_5"
 	      android:layout_alignRight="@+id/draggbleRangle_5_5"
 	      android:src="@drawable/gray_square_2_block" />
-
+	  <Button
+        android:id="@+id/gotoTenthLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoTenthLevel"
+        android:text="@string/tenthLevel" />
 </RelativeLayout>

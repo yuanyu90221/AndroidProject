@@ -54,6 +54,10 @@
             android:name=".NinethActivity"
             android:label="@string/title_activity_nineth" >
         </activity>
+        <activity
+            android:name=".TenActivity"
+            android:label="@string/title_activity_ten" >
+        </activity>
     </application>
 
 </manifest>

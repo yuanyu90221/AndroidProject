@@ -21,5 +21,7 @@
     <string name="title_activity_eightth">EightthActivity</string>
     <string name="eightthLevel">前往第8關</string>
     <string name="title_activity_nineth">NinethActivity</string>
-	<string name="ninethLevel">前往第9關</string>
+    <string name="ninethLevel">前往第9關</string>
+    <string name="title_activity_ten">TenActivity</string>
+	<string name="tenthLevel">前往第10關</string>
 </resources>
