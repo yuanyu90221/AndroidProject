@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   
+    <string name="title_activity_easy1">初級</string>
+    <string name="title_activity_easy_activity1">Easy game 1</string>
+    <string name="app_name">DraggablePuzzleDemo</string>
+
+    <string name="title_activity_first">初級第一關</string>
+    <string name="title_activity_second">初級第二關</string>
+    <string name="title_activity_third">初級第三關</string>
+    <string name="title_activity_fourth">初級第四關</string>
+    <string name="title_activity_fifth">初級第五關</string>
+    <string name="title_activity_sixth">中級第一關</string>
+    <string name="title_activity_seven">中級第二關</string>
+    <string name="title_activity_eightth">中級第三關</string>
+    <string name="title_activity_nineth">中級第四關</string>
+    <string name="title_activity_ten">中級第五關</string>
+    <string name="title_activity_main_index">遊戲首頁</string>
+    <string name="title_activity_medium_level">中級</string>
+	<string name="title_activity_easy_level">初級</string>
+</resources>

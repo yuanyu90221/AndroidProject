@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.draggablepuzzledemo.SecondActivity" >
+
+    <LinearLayout
+        android:id="@+id/secondtopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#888888"
+        android:orientation="horizontal" >
+
+		<!-- 顯示 計時器UI -->
+        <TextView 
+		    android:id="@+id/secondTimer"
+		    android:layout_width="40dp"
+		    android:layout_height="20dp" 
+		    android:background="#0000ff"
+			android:textColor="#00ff00"
+			android:text="00:00"/>
+
+    </LinearLayout>
+     <ImageView
+        android:id="@+id/draggbleRangle_5_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_marginLeft="0dp"
+       	android:layout_marginTop="20dp"
+        android:src="@drawable/draggable_range" />
+    
+     <ImageView
+        android:id="@+id/target_region_5_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"      
+        android:layout_marginLeft="60dp"
+       	android:layout_marginTop="80dp"
+        android:src="@drawable/target_region" />
+
+    <ImageView
+        android:id="@+id/green_down_tblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/draggbleRangle_5_5"
+        android:src="@drawable/green_down_tblock" />
+
+    <ImageView
+        android:id="@+id/gray_right_tblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/draggbleRangle_5_5"
+        android:layout_alignTop="@+id/draggbleRangle_5_5"
+        android:src="@drawable/gray_right_tblock" />
+
+    <ImageView
+        android:id="@+id/blue_left_tblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/draggbleRangle_5_5"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/blue_left_tblock" />
+
+    <ImageView
+        android:id="@+id/red_up_tblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/draggbleRangle_5_5"
+        android:layout_alignRight="@+id/draggbleRangle_5_5"
+        android:src="@drawable/red_up_tblock" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/red_up_tblock"
+        android:layout_marginLeft="35dp"
+        android:layout_toRightOf="@+id/draggbleRangle_5_5"
+        android:onClick="goUpPage"
+        android:src="@drawable/home" />
+
+</RelativeLayout>
