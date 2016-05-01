@@ -194,4 +194,6 @@ public class FirstActivity extends Activity {
 		timer.cancel();
 		finish();
 	}
+	
+	
 }
