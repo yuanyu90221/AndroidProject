@@ -108,6 +108,7 @@ public class DragImgListener implements OnTouchListener{
 				else{
 					fx0 = curpost.xindex;
 					fy0 = curpost.yindex;
+					
 					if(curpost.xindex == 0 && curpost.yindex == 0){
 						fx0 = (int)(v.getX()/RANGE);
 						fy0 =(v.getTop()/RANGE);
