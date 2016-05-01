@@ -19,7 +19,7 @@ public class Cordinate {
 	public String toString() {
 		return String.format("(x,y) = (%d,%d)\n", xindex,yindex);
 	}
-	//FIXME
+	
 	@Override
 	public boolean equals(Object o) {
 		if(o instanceof Cordinate){
