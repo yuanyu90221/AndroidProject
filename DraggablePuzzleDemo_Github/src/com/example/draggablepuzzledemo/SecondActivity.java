@@ -26,7 +26,7 @@ public class SecondActivity extends Activity {
 	DragImgListener secondImgListener;
 	
 	//計時器 
-	Timer secondTimer;
+	public static Timer secondTimer;
 	
 	//計時器顯示
 	TextView secondTxtTimer;
@@ -176,6 +176,8 @@ public class SecondActivity extends Activity {
 	}
 	
 	public void goUpPage(View v) {
+		isStartSecondTimer = false;
+		secondTimer.cancel();
 		finish();
 	}
 }

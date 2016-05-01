@@ -26,7 +26,7 @@ public class FourthActivity extends Activity {
 	DragImgListener fourthImgListener;
 	
 	//計時器 
-	Timer fourthTimer;
+	public static Timer fourthTimer;
 	
 	//計時器顯示
 	TextView fourthTxtTimer;
@@ -177,6 +177,8 @@ public class FourthActivity extends Activity {
 	}
 	
 	public void goUpPage(View v) {
+		isStartFourthTimer = false;
+		fourthTimer.cancel();
 		finish();
 	}
 }

@@ -114,9 +114,7 @@ public class DragImgListener implements OnTouchListener{
 					}
 				}
 			}
-			else {
-				
-			}
+			
 			String cod = String.format("(fx0,fy0) = (%d, %d),\n score = %d",fx0 , fy0, score);
 			int currentTsec = 0;
 			if(score == checkValue){
@@ -126,42 +124,52 @@ public class DragImgListener implements OnTouchListener{
 					case 1:
 						FirstActivity.isStartTimer = false;
 						currentTsec = FirstActivity.tsec;
+						FirstActivity.timer.cancel();
 						break;
 					case 2:
 						SecondActivity.isStartSecondTimer = false;
 						currentTsec = SecondActivity.tsec;
+						SecondActivity.secondTimer.cancel();
 						break;
 					case 3:
 						ThirdActivity.isStartThirdTimer = false;
 						currentTsec = ThirdActivity.tsec;
+						ThirdActivity.thirdTimer.cancel();
 						break;
 					case 4:
 						FourthActivity.isStartFourthTimer = false;
 						currentTsec = FourthActivity.tsec;
+						FourthActivity.fourthTimer.cancel();
 						break;
 					case 5:
 						FifthActivity.isStartFifthTimer = false;
 						currentTsec = FifthActivity.tsec;
+						FifthActivity.fifthTimer.cancel();
 						break;
 					case 6:
 						SixthActivity.isStartSixthTimer = false;
 						currentTsec = SixthActivity.tsec;
+						SixthActivity.sixthTimer.cancel();
 						break;
 					case 7:
 						SeventhActivity.isStartSeventhTimer = false;
 						currentTsec = SeventhActivity.tsec;
+						SeventhActivity.seventhTimer.cancel();
 						break;
 					case 8:
 						EightthActivity.isStartEightthTimer = false;
 						currentTsec = EightthActivity.tsec;
+						EightthActivity.eightthTimer.cancel();
 						break;
 					case 9:
 						NinethActivity.isStartNinethTimer = false;
 						currentTsec = NinethActivity.tsec;
+						NinethActivity.ninethTimer.cancel();
 						break;
 					case 10:
 						TenthActivity.isStartTenthTimer = false;
 						currentTsec = TenthActivity.tsec;
+						TenthActivity.tenthTimer.cancel();
 						break;
 				}
 				int accTime = MainIndexActivity.levelTimes.get(playLevel);

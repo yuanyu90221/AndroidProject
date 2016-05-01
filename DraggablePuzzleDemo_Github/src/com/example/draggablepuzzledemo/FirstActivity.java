@@ -26,7 +26,7 @@ public class FirstActivity extends Activity {
 	DragImgListener imgListener;
 
 	// 計時器
-	Timer timer;
+	public static Timer timer;
 
 	// 計時器顯示
 	TextView txtTimer;
@@ -190,6 +190,8 @@ public class FirstActivity extends Activity {
 	}
 
 	public void goUpPage(View v) {
+		isStartTimer = false;
+		timer.cancel();
 		finish();
 	}
 }

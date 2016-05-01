@@ -26,7 +26,7 @@ public class ThirdActivity extends Activity {
 	DragImgListener thirdImgListener;
 	
 	//計時器 
-	Timer thirdTimer;
+	public static Timer thirdTimer;
 	
 	//計時器顯示
 	TextView thirdTxtTimer;
@@ -176,6 +176,8 @@ public class ThirdActivity extends Activity {
 	}
 	
 	public void goUpPage(View v) {
+		isStartThirdTimer = false;
+		thirdTimer.cancel();
 		finish();
 
 	}

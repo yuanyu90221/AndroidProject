@@ -26,7 +26,7 @@ public class EightthActivity extends Activity {
 	DragImgListener eightthImgListener;
 	
 	//計時器 
-	Timer eightthTimer;
+	public static Timer eightthTimer;
 	
 	//計時器顯示
 	TextView eightthTxtTimer;
@@ -195,6 +195,8 @@ public class EightthActivity extends Activity {
 	}
 	
 	public void goUpPage(View v) {
+		isStartEightthTimer = false;
+		eightthTimer.cancel();
 		finish();
 	}
 }

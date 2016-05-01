@@ -26,7 +26,7 @@ public class NinethActivity extends Activity {
 	DragImgListener ninethImgListener;
 	
 	//計時器 
-	Timer ninethTimer;
+	public static Timer ninethTimer;
 	
 	//計時器顯示
 	TextView ninethTxtTimer;
@@ -194,6 +194,8 @@ public class NinethActivity extends Activity {
 	}
 	
 	public void goUpPage(View v) {
+		isStartNinethTimer = false;
+		ninethTimer.cancel();
 		finish();
 	}
 }

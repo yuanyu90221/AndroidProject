@@ -26,7 +26,7 @@ public class FifthActivity extends Activity {
 	DragImgListener fifthImgListener;
 	
 	//計時器 
-	Timer fifthTimer;
+	public static Timer fifthTimer;
 	
 	//計時器顯示
 	TextView fifthTxtTimer;
@@ -178,6 +178,8 @@ public class FifthActivity extends Activity {
 	}
 	
 	public void goUpPage(View v) {
+		isStartFifthTimer = false;
+		fifthTimer.cancel();
 		finish();
 	}
 }

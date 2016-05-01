@@ -26,7 +26,7 @@ public class SixthActivity extends Activity {
 	DragImgListener sixthImgListener;
 	
 	//計時器 
-	Timer sixthTimer;
+	public static Timer sixthTimer;
 	
 	//計時器顯示
 	TextView sixthTxtTimer;
@@ -201,6 +201,8 @@ public class SixthActivity extends Activity {
 		startActivity(it);
 	}
 	public void goUpPage(View v) {
+		isStartSixthTimer = false;
+		sixthTimer.cancel();
 		finish();
 	}
 }
