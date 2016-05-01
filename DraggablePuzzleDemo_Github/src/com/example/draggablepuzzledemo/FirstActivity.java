@@ -66,7 +66,6 @@ public class FirstActivity extends Activity {
 		brown_rec.addCord(new Cordinate(0, 3));
 		Log.d("occupiedList", "yuanyu List1: " + brown_rec.toString());
 		viewMap.put(String.valueOf(R.id.brown_rectangle), brown_rec);
-		imgListener.changeRec(0, 1, 0, 1, brown_rec.occupiedSpaceList);
 		
 		red_rectangle = (ImageView) findViewById(R.id.red_rectangle);
 		red_rectangle.setOnTouchListener(imgListener);
@@ -76,7 +75,6 @@ public class FirstActivity extends Activity {
 		red_rec.addCord(new Cordinate(0, 2));
 		red_rec.addCord(new Cordinate(0, 3));
 		viewMap.put(String.valueOf(R.id.red_rectangle), red_rec);
-		imgListener.changeRec(9, 1, 9, 1, red_rec.occupiedSpaceList);
 		
 		brown_down_lblock = (ImageView) findViewById(R.id.brown_down_lblock);
 		brown_down_lblock.setOnTouchListener(imgListener);
@@ -86,7 +84,6 @@ public class FirstActivity extends Activity {
 		brown_down_l.addCord(new Cordinate(0, 2));
 		brown_down_l.addCord(new Cordinate(1, 2));
 		viewMap.put(String.valueOf(R.id.brown_down_lblock), brown_down_l);
-		imgListener.changeRec(0, 10, 0, 10, brown_down_l.occupiedSpaceList);
 
 		green_up_lblock = (ImageView) findViewById(R.id.green_up_lblock);
 		green_up_lblock.setOnTouchListener(imgListener);
@@ -96,7 +93,6 @@ public class FirstActivity extends Activity {
 		greep_up_l.addCord(new Cordinate(1, 1));
 		greep_up_l.addCord(new Cordinate(1, 2));
 		viewMap.put(String.valueOf(R.id.green_up_lblock), greep_up_l);
-		imgListener.changeRec(8, 10, 8, 10, greep_up_l.occupiedSpaceList);
 		Log.d("occupiedList", "yuanyu List1: " + red_rec.toString());
 		// 3. 帶入計時器
 		txtTimer = (TextView) findViewById(R.id.timer);
