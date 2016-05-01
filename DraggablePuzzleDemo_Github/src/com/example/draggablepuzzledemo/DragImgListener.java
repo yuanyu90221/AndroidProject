@@ -52,8 +52,8 @@ public class DragImgListener implements OnTouchListener{
 		this.playLevel = playLevel;
 		this.checkRange = checkRange;
 		this.checkValue = checkRange.size();
-		this.checkRange_x = (playLevel >= 5)? 12:10;
-		this.checkRange_y = (playLevel >= 5)? 13:11;
+		this.checkRange_x = (playLevel >= 6)? 12:10;
+		this.checkRange_y = (playLevel >= 6)? 13:11;
 	}
 
 	@Override
