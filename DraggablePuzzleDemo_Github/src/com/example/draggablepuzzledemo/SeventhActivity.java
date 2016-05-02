@@ -14,7 +14,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * @description 第七關畫面
+ * 
+ * @author Yuanyu &奕軒
+ *
+ */
 public class SeventhActivity extends Activity {	
 	//顯示訊息的toast
 	private Toast seventhTos;

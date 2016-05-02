@@ -14,7 +14,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * @description 第四關畫面
+ * 
+ * @author Yuanyu &奕軒
+ *
+ */
 public class FourthActivity extends Activity {
 	// 用來顯示訊息的Toast
 	private Toast fourthTos;

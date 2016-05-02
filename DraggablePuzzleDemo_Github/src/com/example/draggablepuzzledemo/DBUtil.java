@@ -52,18 +52,18 @@ public class DBUtil {
     	HashMap<Integer, Integer> resultMap = new HashMap<Integer, Integer>();
     	
     	StringBuilder sb = new StringBuilder();
-    		sb.append(queryRangeData);
-    		int count = 0;
-    		for(int level : levels){
-    			sb.append(level);
-    			if(count != levels.length -1){
-    				sb.append(",");
-    			}
-    			else {
-    				sb.append(") order by level asc");
-    			}
-    			count++;
-    		}
+		sb.append(queryRangeData);
+		int count = 0;
+		for(int level : levels){
+			sb.append(level);
+			if(count != levels.length -1){
+				sb.append(",");
+			}
+			else {
+				sb.append(") order by level asc");
+			}
+			count++;
+		}
     	Cursor cur = db.rawQuery(sb.toString(), null);
     	int queryCount = cur.getCount();
     	if(queryCount == 0 ){

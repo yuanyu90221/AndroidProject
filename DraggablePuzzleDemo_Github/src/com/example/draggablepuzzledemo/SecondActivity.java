@@ -15,6 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @description 第二關畫面
+ * 
+ * @author Yuanyu &奕軒
+ *
+ */
 public class SecondActivity extends Activity {
 	//顯示訊息的toast
 	private Toast secondTos;

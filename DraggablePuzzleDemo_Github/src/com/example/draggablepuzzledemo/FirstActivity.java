@@ -16,6 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @description 第一關畫面
+ * 
+ * @author Yuanyu &奕軒
+ *
+ */
 public class FirstActivity extends Activity {
 
 	//顯示訊息的toast

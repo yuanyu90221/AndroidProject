@@ -15,7 +15,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * @description 第三關畫面
+ * 
+ * @author Yuanyu &奕軒
+ *
+ */
 public class ThirdActivity extends Activity {
 	//顯示訊息的toast
 	private Toast thirdTos;
