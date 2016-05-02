@@ -19,8 +19,9 @@ public class DragImgListener implements OnTouchListener{
 	float x = 0, y = 0; // 原本圖片存在的X,Y軸位置
 	int mx = 0, my = 0; // 圖片被拖曳的X ,Y軸距離長度
 	float rowx = 0, rowy = 0;
+	// 移動單格的單位
     private static final int RANGE = 40;
-    
+    // 檢查範圍
     public int checkRange_x = 10, checkRange_y = 11;
     private static int fx0 = 0;
     private static int fy0 = 0;
@@ -28,14 +29,16 @@ public class DragImgListener implements OnTouchListener{
     public int score = 0;
     // 用來標註是否被占用的矩陣
     public PositionMatrix position = new PositionMatrix();
-    // 
+    // 修改
     public HashMap<String, SelfDefImgView> viewMap;
     // 用來確認的遊戲結束的分數
     public int checkValue = 0;
+    // 檢查範圍格子
     public List<Cordinate> checkRange = new ArrayList<Cordinate>();
   
     // playLevel 1 ~ 10  
     public int playLevel;
+    // 顯示
 	private Toast result;
 	
 	public Toast getResult() {
@@ -46,6 +49,14 @@ public class DragImgListener implements OnTouchListener{
 		this.result = result;
 	}
 	
+	/**
+	 * 建構子
+	 * 
+	 * @param tos
+	 * @param viewMap
+	 * @param playLevel
+	 * @param checkRange
+	 */
 	public DragImgListener(Toast tos, HashMap<String, SelfDefImgView> viewMap, int playLevel, List<Cordinate> checkRange){
 		this.result = tos;
 		this.viewMap = viewMap;
@@ -116,11 +127,12 @@ public class DragImgListener implements OnTouchListener{
 				}
 			}
 			
-			String cod = String.format("(fx0,fy0) = (%d, %d),\n score = %d",fx0 , fy0, score);
+			String cod = "";
+			String cordInfo = String.format("(fx0,fy0) = (%d, %d),\n score = %d",fx0 , fy0, score);
 			int currentTsec = 0;
+			// 當遊戲完成
 			if(score == checkValue){
-				
-				cod = "過關!";
+				cod = String.format("過關!");
 				switch(playLevel){
 					case 1:
 						FirstActivity.isStartTimer = false;
@@ -184,7 +196,9 @@ public class DragImgListener implements OnTouchListener{
 					}
 				}
 			}
-			
+			else {
+				cod = cordInfo;
+			}
 			result.setText(cod);
 			result.show();
 			fx0 *= RANGE;
@@ -201,6 +215,15 @@ public class DragImgListener implements OnTouchListener{
 		return true;
 	}
 	
+	/**
+	 * 改變矩陣內容,並且把檢查是否在目標範圍內
+	 * 
+	 * @param orgw
+	 * @param orgh
+	 * @param tagw
+	 * @param tagh
+	 * @param occpuiedList
+	 */
 	public void changeRec(int orgw, int orgh, int tagw, int tagh,List<Cordinate> occpuiedList){
 		for(Cordinate offset : occpuiedList){
 			position.changeValue(orgw + offset.xindex, orgh+ offset.yindex, false);
@@ -217,6 +240,15 @@ public class DragImgListener implements OnTouchListener{
 		}
 	}
 	
+	/**
+	 * 檢查範圍
+	 * 
+	 * @param orgw
+	 * @param orgh
+	 * @param resultPosition
+	 * @param occpuiedList
+	 * @return
+	 */
 	public boolean checkRec(int orgw, int orgh,PositionElement[][] resultPosition, List<Cordinate> occpuiedList){
 		for(Cordinate offset : occpuiedList){
 			if((orgw + offset.xindex >= checkRange_x || orgh + offset.yindex >= checkRange_y ) || resultPosition[orgw + offset.xindex][orgh+offset.yindex].isOccupied()){

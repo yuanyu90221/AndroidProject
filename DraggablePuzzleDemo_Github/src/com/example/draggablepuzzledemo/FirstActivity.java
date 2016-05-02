@@ -149,44 +149,10 @@ public class FirstActivity extends Activity {
 
 	};
 
-	/**
-	 * stop計時器
-	 * 
-	 * @param v
-	 */
-	public void stopTimer(View v) {
-		// 開啟flag
-		isStartTimer = false;
-	}
-
-	/**
-	 * stop計時器
-	 * 
-	 * @param v
-	 */
-	public void restartTimer(View v) {
-		// 將計時器歸零
-		tsec = 0;
-		// TextView 初始化
-		txtTimer.setText("00:00");
-		// 開啟flag
-		isStartTimer = true;
-	}
-
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
-	}
-
-	/**
-	 * 跳至第二關
-	 * 
-	 * @param v
-	 */
-	public void gotoSecondLevel(View v) {
-		Intent it = new Intent(this, SecondActivity.class);
-		startActivity(it);
 	}
 
 	public void goUpPage(View v) {

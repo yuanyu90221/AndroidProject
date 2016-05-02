@@ -144,36 +144,6 @@ public class SecondActivity extends Activity {
 		}
 		
 	};
-	/**
-	 * stop the timer
-	 * @param v
-	 */
-	public void stopSecondTimer(View v){
-		isStartSecondTimer = false;
-	}
-	
-	/**
-	 * start the timer
-	 * @param v
-	 */
-	public void restartSecondTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		secondTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartSecondTimer = true;
-	}
-	
-	/**
-	 * 跳至第三關
-	 * 
-	 * @param v
-	 */
-	public void gotoThirdLevel(View v) {
-		Intent it = new Intent(this, ThirdActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartSecondTimer = false;

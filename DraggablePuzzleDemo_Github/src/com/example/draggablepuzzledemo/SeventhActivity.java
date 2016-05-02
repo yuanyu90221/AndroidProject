@@ -163,36 +163,6 @@ public class SeventhActivity extends Activity {
 		}
 		
 	};
-	/**
-	 * stop seventhTimer
-	 * @param v
-	 */
-	public void stopSeventhTimer(View v){
-		
-		isStartSeventhTimer = false;
-	}
-	
-	/**
-	 * restart seventhTimer
-	 * @param v
-	 */
-	public void restartSeventhTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		seventhTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartSeventhTimer = true;
-	}
-	
-	/**
-	 * goto 8th level
-	 * @param v
-	 */
-	public void gotoEightthLevel(View v){
-		Intent it = new Intent(this, EightthActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartSeventhTimer = false;

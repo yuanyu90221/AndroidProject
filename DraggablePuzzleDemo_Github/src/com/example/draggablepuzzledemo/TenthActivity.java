@@ -164,28 +164,6 @@ public class TenthActivity extends Activity {
 		
 	};
 	
-	/**
-	 * stop tenthTimer
-	 * @param v
-	 */
-	public void stopTenthTimer(View v){
-		
-		isStartTenthTimer = false;
-	}
-	
-	/**
-	 * restart tenthTimer
-	 * @param v
-	 */
-	public void restartTenthTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		tenthTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartTenthTimer = true;
-	}
-	
 	public void goUpPage(View v) {
 		isStartTenthTimer = false;
 		tenthTimer.cancel();

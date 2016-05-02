@@ -162,36 +162,6 @@ public class NinethActivity extends Activity {
 		}
 		
 	};
-	/**
-	 * stop ninethTimer
-	 * @param v
-	 */
-	public void stopNinethTimer(View v){
-		
-		isStartNinethTimer = false;
-	}
-	
-	/**
-	 * restart ninethTimer
-	 * @param v
-	 */
-	public void restartNinethTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		ninethTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartNinethTimer = true;
-	}
-	
-	/**
-	 * goto 10th level
-	 * @param v
-	 */
-	public void gotoTenthLevel(View v){
-		Intent it = new Intent(this, TenthActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartNinethTimer = false;

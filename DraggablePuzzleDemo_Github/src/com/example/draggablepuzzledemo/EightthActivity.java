@@ -163,36 +163,6 @@ public class EightthActivity extends Activity {
 		}
 		
 	};
-	/**
-	 * stop eightthTimer
-	 * @param v
-	 */
-	public void stopEightthTimer(View v){
-		
-		isStartEightthTimer = false;
-	}
-	
-	/**
-	 * restart eightthTimer
-	 * @param v
-	 */
-	public void restartEightthTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		eightthTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartEightthTimer = true;
-	}
-	
-	/**
-	 * goto 9th level
-	 * @param v
-	 */
-	public void gotoNinethLevel(View v){
-		Intent it = new Intent(this, NinethActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartEightthTimer = false;

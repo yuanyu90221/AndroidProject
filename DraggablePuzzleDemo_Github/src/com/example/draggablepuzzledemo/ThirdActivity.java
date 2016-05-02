@@ -143,37 +143,6 @@ public class ThirdActivity extends Activity {
 		}
 		
 	};
-
-	/**
-	 * stop thirdTimer
-	 * @param v
-	 */
-	public void stopThirdTimer(View v){
-		isStartThirdTimer = false;
-	}
-	
-	/**
-	 * restart thirdTimer
-	 * @param v
-	 */
-	public void restartThirdTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		thirdTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartThirdTimer = true;
-	}
-	
-	
-	/**
-	 * goto 4th Level 
-	 * @param v
-	 */
-	public void gotoFourthLevel(View v){
-		Intent it = new Intent(this, FourthActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartThirdTimer = false;

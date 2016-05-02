@@ -145,37 +145,6 @@ public class FifthActivity extends Activity {
 		}
 		
 	};
-	/**
-	 * stop fifthTimer
-	 * @param v
-	 */
-	public void stopFifthTimer(View v){
-		
-		isStartFifthTimer = false;
-	}
-	
-	/**
-	 * restart fifthTimer
-	 * @param v
-	 */
-	public void restartFifthTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		fifthTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartFifthTimer = true;
-	}
-	
-	
-	/**
-	 * goto 6th level
-	 * @param v
-	 */
-	public void gotoSixfthLevel(View v){
-		Intent it = new Intent(this, SixthActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartFifthTimer = false;

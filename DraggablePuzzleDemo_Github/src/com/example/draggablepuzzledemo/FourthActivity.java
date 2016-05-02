@@ -144,37 +144,6 @@ public class FourthActivity extends Activity {
 		}
 		
 	};
-	/**
-	 * stop thirdTimer
-	 * @param v
-	 */
-	public void stopFourthTimer(View v){
-		
-		isStartFourthTimer = false;
-	}
-	
-	/**
-	 * restart thirdTimer
-	 * @param v
-	 */
-	public void restartFourthTimer(View v){
-		// 將計時器歸零
-		tsec=0;
-		//TextView 初始化
-		fourthTxtTimer.setText("00:00");
-	    // 開啟flag
-		isStartFourthTimer = true;
-	}
-	
-	
-	/**
-	 * goto 5th Level 
-	 * @param v
-	 */
-	public void gotoFifthLevel(View v){
-		Intent it = new Intent(this, FifthActivity.class);
-		startActivity(it);
-	}
 	
 	public void goUpPage(View v) {
 		isStartFourthTimer = false;
