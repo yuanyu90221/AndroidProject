@@ -67,10 +67,6 @@
             android:label="@string/title_activity_easy_level" >
         </activity>
         <activity
-            android:name=".EasyActivity1"
-            android:label="@string/title_activity_first" >
-        </activity>
-        <activity
             android:name=".MediumLevelActivity"
             android:label="@string/title_activity_medium_level" >
         </activity>
