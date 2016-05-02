@@ -64,6 +64,7 @@ public class NinethActivity extends Activity {
 		red_leftup_l_1.addCord(new Cordinate(2, 0));
 		red_leftup_l_1.addCord(new Cordinate(0, 1));
 		ninethViewMap.put(String.valueOf(R.id.red_leftup_lblock_1), red_leftup_l_1);
+		ninethImgListener.changeRec(0, 1, 0, 1, red_leftup_l_1.occupiedSpaceList);
 		
 		gray_right_tblock_3 = (ImageView) findViewById(R.id.gray_right_tblock_3);
 		gray_right_tblock_3.setOnTouchListener(ninethImgListener);
@@ -73,6 +74,7 @@ public class NinethActivity extends Activity {
 		gray_right_t_3.addCord(new Cordinate(1,1));
 		gray_right_t_3.addCord(new Cordinate(1,2));
 		ninethViewMap.put(String.valueOf(R.id.gray_right_tblock_3), gray_right_t_3);
+		ninethImgListener.changeRec(6, 1, 6, 1, gray_right_t_3.occupiedSpaceList);
 		
 		green_up_lblock_1 = (ImageView) findViewById(R.id.green_up_lblock_1);
 		green_up_lblock_1.setOnTouchListener(ninethImgListener);
@@ -82,6 +84,7 @@ public class NinethActivity extends Activity {
 		green_up_l_1.addCord(new Cordinate(1, 1));
 		green_up_l_1.addCord(new Cordinate(1, 2));
 		ninethViewMap.put(String.valueOf(R.id.green_up_lblock_1), green_up_l_1);
+		ninethImgListener.changeRec(10, 1, 10, 1, green_up_l_1.occupiedSpaceList);
 		
 		green_short_ublock_1 = (ImageView) findViewById(R.id.green_short_ublock_1);
 		green_short_ublock_1.setOnTouchListener(ninethImgListener);
@@ -92,6 +95,7 @@ public class NinethActivity extends Activity {
 		green_short_u_1.addCord(new Cordinate(2,0));
 		green_short_u_1.addCord(new Cordinate(2,1));
 		ninethViewMap.put(String.valueOf(R.id.green_short_ublock_1), green_short_u_1);
+		ninethImgListener.changeRec(0, 11, 0, 11, green_short_u_1.occupiedSpaceList);
 		
 		brown_square_2_block_1 = (ImageView) findViewById(R.id.brown_square_2_block_1);
 		brown_square_2_block_1.setOnTouchListener(ninethImgListener);
@@ -101,6 +105,7 @@ public class NinethActivity extends Activity {
 		brown_square_2_1.addCord(new Cordinate(1,0));
 		brown_square_2_1.addCord(new Cordinate(1,1));
 		ninethViewMap.put(String.valueOf(R.id.brown_square_2_block_1), brown_square_2_1);
+		ninethImgListener.changeRec(6, 11, 6, 11, brown_square_2_1.occupiedSpaceList);
 		
 		gray_square_2_block_1 = (ImageView) findViewById(R.id.gray_square_2_block_1);
 		gray_square_2_block_1.setOnTouchListener(ninethImgListener);
@@ -110,6 +115,7 @@ public class NinethActivity extends Activity {
 		gray_square_2_1.addCord(new Cordinate(1, 0));
 		gray_square_2_1.addCord(new Cordinate(1, 1));
 		ninethViewMap.put(String.valueOf(R.id.gray_square_2_block_1), gray_square_2_1);
+		ninethImgListener.changeRec(10, 11, 10, 11, gray_square_2_1.occupiedSpaceList);
 
 		// 3. 帶入計時器
 		ninethTxtTimer = (TextView) findViewById(R.id.ninethTimer);

@@ -117,12 +117,32 @@ public class DragImgListener implements OnTouchListener{
 					fy0 = tempFy;
 				}
 				else{
+					
 					fx0 = curpost.xindex;
 					fy0 = curpost.yindex;
 					
 					if(curpost.xindex == 0 && curpost.yindex == 0){
 						fx0 = (int)(v.getX()/RANGE);
 						fy0 =(v.getTop()/RANGE);
+						curpost.xindex = fx0;
+						curpost.yindex = fy0;
+						
+					}
+					else {
+						int offsetx = (tempFx > curpost.xindex)? -1: 1;
+						int offsety = (tempFy > curpost.yindex)? -1: 1;
+						for(int x = tempFx;Math.abs(x-curpost.xindex) > 1 ; x += offsetx){
+							for(int y = tempFy;Math.abs(y-curpost.yindex) > 1 ; y += offsety){
+								if(checkRec(x,y,resultPosition,sv.occupiedSpaceList)){
+									changeRec(curpost.xindex, curpost.yindex, x, y,sv.occupiedSpaceList);
+									fx0 = x;
+									fy0 = y;
+									curpost.xindex = fx0;
+									curpost.yindex = fy0;
+									break;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -261,4 +281,5 @@ public class DragImgListener implements OnTouchListener{
 		return true;
 	}
 
+	
 }

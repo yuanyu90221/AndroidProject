@@ -66,6 +66,7 @@ public class FourthActivity extends Activity {
 		green_down_t_1.addCord(new Cordinate(1,0));
 		green_down_t_1.addCord(new Cordinate(2,0));
 		fourthViewMap.put(String.valueOf(R.id.green_down_tblock_1), green_down_t_1);
+		fourthImgListener.changeRec(0, 1, 0, 1, green_down_t_1.occupiedSpaceList);
 		
 		gray_right_tblock_1 = (ImageView) findViewById(R.id.gray_right_tblock_1);
 		gray_right_tblock_1.setOnTouchListener(fourthImgListener);
@@ -75,6 +76,7 @@ public class FourthActivity extends Activity {
 		gray_right_t_1.addCord(new Cordinate(1,1));
 		gray_right_t_1.addCord(new Cordinate(1,2));
 		fourthViewMap.put(String.valueOf(R.id.gray_right_tblock_1), gray_right_t_1);
+		fourthImgListener.changeRec(8, 1, 8, 1, gray_right_t_1.occupiedSpaceList);
 		
 		purple_laydown_lblock = (ImageView) findViewById(R.id.purple_laydown_lblock);
 		purple_laydown_lblock.setOnTouchListener(fourthImgListener);
@@ -84,6 +86,7 @@ public class FourthActivity extends Activity {
 		purple_laydown_l.addCord(new Cordinate(1,1));
 		purple_laydown_l.addCord(new Cordinate(2,1));
 		fourthViewMap.put(String.valueOf(R.id.purple_laydown_lblock), purple_laydown_l);
+		fourthImgListener.changeRec(0, 9, 0, 9, purple_laydown_l.occupiedSpaceList);
 		
 		blue_laydown_lblock = (ImageView) findViewById(R.id.blue_laydown_lblock);
 		blue_laydown_lblock.setOnTouchListener(fourthImgListener);
@@ -93,6 +96,8 @@ public class FourthActivity extends Activity {
 		blue_laydown_l.addCord(new Cordinate(2,0));
 		blue_laydown_l.addCord(new Cordinate(3,0));
 		fourthViewMap.put(String.valueOf(R.id.blue_laydown_lblock), blue_laydown_l);
+		fourthImgListener.changeRec(6, 10, 6, 10, blue_laydown_l.occupiedSpaceList);
+		
 		// 3. 帶入計時器
 		fourthTxtTimer = (TextView) findViewById(R.id.fourthTimer);
 		fourthTimer = new Timer();

@@ -65,6 +65,7 @@ public class EightthActivity extends Activity {
 		blue_left_t_1.addCord(new Cordinate(0, 2));
 		blue_left_t_1.addCord(new Cordinate(1, 1));
 		eightthViewMap.put(String.valueOf(R.id.blue_left_tblock_1), blue_left_t_1);
+		eightthImgListener.changeRec(0, 1, 0, 1, blue_left_t_1.occupiedSpaceList);
 		
 		green_down_tblock_2 = (ImageView) findViewById(R.id.green_down_tblock_2);
 		green_down_tblock_2.setOnTouchListener(eightthImgListener);
@@ -74,6 +75,7 @@ public class EightthActivity extends Activity {
 		green_down_t_2.addCord(new Cordinate(2,0));
 		green_down_t_2.addCord(new Cordinate(1,1));
 		eightthViewMap.put(String.valueOf(R.id.green_down_tblock_2), green_down_t_2);
+		eightthImgListener.changeRec(3, 1, 3, 1, green_down_t_2.occupiedSpaceList);
 		
 		gray_right_tblock_2 = (ImageView) findViewById(R.id.gray_right_tblock_2);
 		gray_right_tblock_2.setOnTouchListener(eightthImgListener);
@@ -83,6 +85,7 @@ public class EightthActivity extends Activity {
 		gray_right_t_2.addCord(new Cordinate(1,1));
 		gray_right_t_2.addCord(new Cordinate(1,2));
 		eightthViewMap.put(String.valueOf(R.id.gray_right_tblock_2), gray_right_t_2);
+		eightthImgListener.changeRec(10, 1, 10, 1, gray_right_t_2.occupiedSpaceList);
 		
 		green_short_ublock = (ImageView) findViewById(R.id.green_short_ublock);
 		green_short_ublock.setOnTouchListener(eightthImgListener);
@@ -93,6 +96,7 @@ public class EightthActivity extends Activity {
 		green_short_u.addCord(new Cordinate(2,0));
 		green_short_u.addCord(new Cordinate(2,1));
 		eightthViewMap.put(String.valueOf(R.id.green_short_ublock), green_short_u);
+		eightthImgListener.changeRec(0, 11, 0, 11, green_short_u.occupiedSpaceList);
 		
 		red_leftup_lblock = (ImageView) findViewById(R.id.red_leftup_lblock);
 		red_leftup_lblock.setOnTouchListener(eightthImgListener);
@@ -102,6 +106,7 @@ public class EightthActivity extends Activity {
 		red_leftup_l.addCord(new Cordinate(2, 0));
 		red_leftup_l.addCord(new Cordinate(0, 1));
 		eightthViewMap.put(String.valueOf(R.id.red_leftup_lblock), red_leftup_l);
+		eightthImgListener.changeRec(5, 11, 5, 11, red_leftup_l.occupiedSpaceList);
 		
 		pink_square_2_block = (ImageView) findViewById(R.id.pink_square_2_block);
 		pink_square_2_block.setOnTouchListener(eightthImgListener);
@@ -111,6 +116,7 @@ public class EightthActivity extends Activity {
 		pink_square_2.addCord(new Cordinate(1, 0));
 		pink_square_2.addCord(new Cordinate(1, 1));
 		eightthViewMap.put(String.valueOf(R.id.pink_square_2_block), pink_square_2);
+		eightthImgListener.changeRec(10, 11, 10, 11, pink_square_2.occupiedSpaceList);
 		
 		// 3. 帶入計時器
 		eightthTxtTimer = (TextView) findViewById(R.id.eightthTimer);

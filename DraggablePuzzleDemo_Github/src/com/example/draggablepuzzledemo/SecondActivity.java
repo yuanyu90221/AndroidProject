@@ -66,6 +66,7 @@ public class SecondActivity extends Activity {
 		green_down_t.addCord(new Cordinate(1, 1));
 		green_down_t.addCord(new Cordinate(2, 0));
 		secondViewMap.put(String.valueOf(R.id.green_down_tblock), green_down_t);
+		secondImgListener.changeRec(0, 1, 0, 1, green_down_t.occupiedSpaceList);
 		
 		gray_right_tblock = (ImageView) findViewById(R.id.gray_right_tblock);
 		gray_right_tblock.setOnTouchListener(secondImgListener);
@@ -75,6 +76,7 @@ public class SecondActivity extends Activity {
 		gray_right_t.addCord(new Cordinate(1, 1));
 		gray_right_t.addCord(new Cordinate(1, 2));
 		secondViewMap.put(String.valueOf(R.id.gray_right_tblock), gray_right_t);
+		secondImgListener.changeRec(8, 1, 8, 1, gray_right_t.occupiedSpaceList);
 
 		blue_left_tblock = (ImageView) findViewById(R.id.blue_left_tblock);
 		blue_left_tblock.setOnTouchListener(secondImgListener);
@@ -84,6 +86,7 @@ public class SecondActivity extends Activity {
 		blue_left_t.addCord(new Cordinate(0, 2));
 		blue_left_t.addCord(new Cordinate(1, 1));
 		secondViewMap.put(String.valueOf(R.id.blue_left_tblock), blue_left_t);
+		secondImgListener.changeRec(0, 8, 0, 8, blue_left_t.occupiedSpaceList);
 		
 		red_up_tblock = (ImageView) findViewById(R.id.red_up_tblock);
 		red_up_tblock.setOnTouchListener(secondImgListener);
@@ -93,6 +96,7 @@ public class SecondActivity extends Activity {
 		red_up_t.addCord(new Cordinate(1, 1));
 		red_up_t.addCord(new Cordinate(2, 1));
 		secondViewMap.put(String.valueOf(R.id.red_up_tblock), red_up_t);
+		secondImgListener.changeRec(7, 9, 7, 9, red_up_t.occupiedSpaceList);
 		
 		// 3. 帶入計時器
 		secondTxtTimer = (TextView) findViewById(R.id.secondTimer);

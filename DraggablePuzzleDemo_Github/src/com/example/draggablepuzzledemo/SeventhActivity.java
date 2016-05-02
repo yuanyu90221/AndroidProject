@@ -65,6 +65,7 @@ public class SeventhActivity extends Activity {
 		brown_vertical.addCord(new Cordinate(0, 2));
 		brown_vertical.addCord(new Cordinate(0, 3));
 		seventhViewMap.put(String.valueOf(R.id.brown_vertical_block), brown_vertical);
+		seventhImgListener.changeRec(0, 1, 0, 1, brown_vertical.occupiedSpaceList);
 		
 		red_long_tblock = (ImageView) findViewById(R.id.red_long_tblock_1);
 		red_long_tblock.setOnTouchListener(seventhImgListener);
@@ -75,6 +76,7 @@ public class SeventhActivity extends Activity {
 		red_long_t.addCord(new Cordinate(1, 1));
 		red_long_t.addCord(new Cordinate(1, 2));
 		seventhViewMap.put(String.valueOf(R.id.red_long_tblock_1),red_long_t);
+		seventhImgListener.changeRec(3, 1, 3, 1, red_long_t.occupiedSpaceList);
 		
 		gray_short_right_tblock = (ImageView) findViewById(R.id.gray_short_right_tblock);
 		gray_short_right_tblock.setOnTouchListener(seventhImgListener);
@@ -84,6 +86,7 @@ public class SeventhActivity extends Activity {
 		gray_short_right_t.addCord(new Cordinate(1,1));
 		gray_short_right_t.addCord(new Cordinate(1,2));
 		seventhViewMap.put(String.valueOf(R.id.gray_short_right_tblock), gray_short_right_t);
+		seventhImgListener.changeRec(10, 1, 10, 1, gray_short_right_t.occupiedSpaceList);
 		
 		blue_horizontal_block = (ImageView) findViewById(R.id.blue_horizontal_block);
 		blue_horizontal_block.setOnTouchListener(seventhImgListener);
@@ -93,6 +96,7 @@ public class SeventhActivity extends Activity {
 		blue_horizontal.addCord(new Cordinate(2,0));
 		blue_horizontal.addCord(new Cordinate(3,0));
 		seventhViewMap.put(String.valueOf(R.id.blue_horizontal_block), blue_horizontal);
+		seventhImgListener.changeRec(0, 12, 0, 12, blue_horizontal.occupiedSpaceList);
 		
 		orange_leftdown_lblock = (ImageView) findViewById(R.id.orange_leftdown_lblock);
 		orange_leftdown_lblock.setOnTouchListener(seventhImgListener);
@@ -102,6 +106,7 @@ public class SeventhActivity extends Activity {
 		orange_leftdown_l.addCord(new Cordinate(0, 2));
 		orange_leftdown_l.addCord(new Cordinate(1, 2));
 		seventhViewMap.put(String.valueOf(R.id.orange_leftdown_lblock), orange_leftdown_l);
+		seventhImgListener.changeRec(6, 10, 6, 10, orange_leftdown_l.occupiedSpaceList);
 		
 		pink_n_block = (ImageView) findViewById(R.id.pink_n_block);
 		pink_n_block.setOnTouchListener(seventhImgListener);
@@ -111,6 +116,7 @@ public class SeventhActivity extends Activity {
 		pink_n.addCord(new Cordinate(1, 1));
 		pink_n.addCord(new Cordinate(0, 2));
 		seventhViewMap.put(String.valueOf(R.id.pink_n_block),pink_n);
+		seventhImgListener.changeRec(10, 10, 10, 10, pink_n.occupiedSpaceList);
 		
 		// 3. 帶入計時器
 		seventhTxtTimer = (TextView) findViewById(R.id.seventhTimer);

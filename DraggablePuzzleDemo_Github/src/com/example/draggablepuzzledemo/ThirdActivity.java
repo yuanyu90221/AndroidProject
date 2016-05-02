@@ -65,6 +65,7 @@ public class ThirdActivity extends Activity {
 		green_n.addCord(new Cordinate(1,0));
 		green_n.addCord(new Cordinate(1,1));
 		thirdViewMap.put(String.valueOf(R.id.green_nblock), green_n);
+		thirdImgListener.changeRec(0, 1, 0, 1, green_n.occupiedSpaceList);
 		
 		pink_rightdown_corner = (ImageView) findViewById(R.id.pink_rightdown_corner);
 		pink_rightdown_corner.setOnTouchListener(thirdImgListener);
@@ -73,6 +74,7 @@ public class ThirdActivity extends Activity {
 		pink_rightdown_c.addCord(new Cordinate(1, 0));
 		pink_rightdown_c.addCord(new Cordinate(1, 1));
 		thirdViewMap.put(String.valueOf(R.id.pink_rightdown_corner), pink_rightdown_c);
+		thirdImgListener.changeRec(8, 1, 8, 1, pink_rightdown_c.occupiedSpaceList);
 		
 		red_long_tblock = (ImageView) findViewById(R.id.red_long_tblock);
 		red_long_tblock.setOnTouchListener(thirdImgListener);
@@ -83,6 +85,7 @@ public class ThirdActivity extends Activity {
 		red_long_t.addCord(new Cordinate(1,1));
 		red_long_t.addCord(new Cordinate(1,2));
 		thirdViewMap.put(String.valueOf(R.id.red_long_tblock), red_long_t);
+		thirdImgListener.changeRec(0, 8, 0, 8, red_long_t.occupiedSpaceList);
 		
 		orange_down_lblock = (ImageView) findViewById(R.id.orange_down_lblock);
 		orange_down_lblock.setOnTouchListener(thirdImgListener);
@@ -92,6 +95,8 @@ public class ThirdActivity extends Activity {
 		orange_down_l.addCord(new Cordinate(0, 2));
 		orange_down_l.addCord(new Cordinate(1, 2));
 		thirdViewMap.put(String.valueOf(R.id.orange_down_lblock), orange_down_l);
+		thirdImgListener.changeRec(8, 8, 8, 8, orange_down_l.occupiedSpaceList);
+		
 		// 3. 帶入計時器
 		thirdTxtTimer = (TextView) findViewById(R.id.thirdTimer);
 		thirdTimer = new Timer();

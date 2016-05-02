@@ -66,6 +66,7 @@ public class FifthActivity extends Activity {
 		purple_leftdown_l.addCord(new Cordinate(0, 2));
 		purple_leftdown_l.addCord(new Cordinate(1, 2));
 		fifthViewMap.put(String.valueOf(R.id.purple_leftdown_lblock), purple_leftdown_l);
+		fifthImgListener.changeRec(0, 1, 0, 1, purple_leftdown_l.occupiedSpaceList);
 		
 		lightgreen_rightdown_lblock = (ImageView) findViewById(R.id.lightgreen_rightdown_lblock);
 		lightgreen_rightdown_lblock.setOnTouchListener(fifthImgListener);
@@ -75,6 +76,7 @@ public class FifthActivity extends Activity {
 		lightgreen_rightdown_l.addCord(new Cordinate(1,2));
 		lightgreen_rightdown_l.addCord(new Cordinate(0,2));
 		fifthViewMap.put(String.valueOf(R.id.lightgreen_rightdown_lblock), lightgreen_rightdown_l);
+		fifthImgListener.changeRec(8, 1, 8, 1, lightgreen_rightdown_l.occupiedSpaceList);
 		
 		gray_square_2_block = (ImageView) findViewById(R.id.gray_square_2_block);
 		gray_square_2_block.setOnTouchListener(fifthImgListener);
@@ -84,6 +86,7 @@ public class FifthActivity extends Activity {
 		gray_square_2.addCord(new Cordinate(0, 1));
 		gray_square_2.addCord(new Cordinate(1, 1));
 		fifthViewMap.put(String.valueOf(R.id.gray_square_2_block), gray_square_2);
+		fifthImgListener.changeRec(0, 9, 0, 9, gray_square_2.occupiedSpaceList);
 		
 		red_verticallong_block = (ImageView) findViewById(R.id.red_verticallong_block);
 		red_verticallong_block.setOnTouchListener(fifthImgListener);
@@ -93,6 +96,7 @@ public class FifthActivity extends Activity {
 		red_verticallong.addCord(new Cordinate(2,0));
 		red_verticallong.addCord(new Cordinate(3,0));
 		fifthViewMap.put(String.valueOf(R.id.red_verticallong_block), red_verticallong);
+		fifthImgListener.changeRec(6, 10, 6, 10, red_verticallong.occupiedSpaceList);
 		
 		// 3. 帶入計時器
 		fifthTxtTimer = (TextView) findViewById(R.id.fifthTimer);
