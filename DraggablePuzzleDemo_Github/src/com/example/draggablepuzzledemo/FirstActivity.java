@@ -154,6 +154,16 @@ public class FirstActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
+		if(isStartTimer==false){
+			timer.schedule(task, tsec, 1000);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		isStartTimer = false;
+		timer.cancel();
+		super.onStop();
 	}
 
 	/**

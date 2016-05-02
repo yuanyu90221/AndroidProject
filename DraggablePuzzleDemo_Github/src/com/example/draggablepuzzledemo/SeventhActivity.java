@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -164,6 +165,21 @@ public class SeventhActivity extends Activity {
 		
 	};
 	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.e("yuanyu", "yuanyu[timertask]");
+		if(isStartSeventhTimer == false){
+			seventhTimer.schedule(task, tsec, 1000);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		isStartSeventhTimer = false;
+		seventhTimer.cancel();
+		super.onStop();
+	}
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v

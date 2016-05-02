@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -143,6 +144,22 @@ public class SecondActivity extends Activity {
 		}
 		
 	};
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.e("yuanyu", "yuanyu[timertask]");
+		if(isStartSecondTimer== false){
+			secondTimer.schedule(task, tsec, 1000);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		isStartSecondTimer = false;
+		secondTimer.cancel();
+		super.onStop();
+	}
 	
 	public void goUpPage(View v) {
 		isStartSecondTimer = false;
