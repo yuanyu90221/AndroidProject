@@ -7,7 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,24 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class FifthActivity extends Activity {
-
+	//顯示訊息的Toast
 	private Toast fifthTos;
 	//拖曳的方塊
 	ImageView purple_leftdown_lblock, lightgreen_rightdown_lblock, gray_square_2_block, red_verticallong_block;
 	SelfDefImgView purple_leftdown_l, lightgreen_rightdown_l, gray_square_2, red_verticallong;
 	//拖拉監聽器
-	DragImgListener fifthImgListener;
-	
+	DragImgListener fifthImgListener;	
 	//計時器 
-	public static Timer fifthTimer;
-	
+	public static Timer fifthTimer;	
 	//計時器顯示
 	TextView fifthTxtTimer;
-	//          目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//          目前累計秒數        
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartFifthTimer = true;
-	
+	// 用來儲存方格位置的Map
 	public static HashMap<String, SelfDefImgView> fifthViewMap = new HashMap<String, SelfDefImgView>();
 
 	@Override
@@ -112,15 +109,7 @@ public class FifthActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					fifthTxtTimer.setText(resultTime);
+					fifthTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}
@@ -146,6 +135,10 @@ public class FifthActivity extends Activity {
 		
 	};
 	
+	/**
+	 * 關閉計時器 並且回到上一頁
+	 * @param v
+	 */
 	public void goUpPage(View v) {
 		isStartFifthTimer = false;
 		fifthTimer.cancel();

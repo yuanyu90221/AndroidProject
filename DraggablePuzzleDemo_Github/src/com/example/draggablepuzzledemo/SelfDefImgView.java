@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 用來儲存方格space的物件
  * 
- * @author user
+ * @author yuanyu
  *
  */
 public class SelfDefImgView{

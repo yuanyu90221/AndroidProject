@@ -12,6 +12,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+/**
+ * @description 提供選擇等級畫面 
+ * 
+ * @author Jane
+ *
+ */
 public class MainIndexActivity extends Activity {
 	//建立資料庫
 	public static SQLiteDatabase db;
@@ -38,6 +44,7 @@ public class MainIndexActivity extends Activity {
         	// 初始化資料表;
         	DBUtil.initDB(db);
         }
+        // 設定目前每個關卡的時間為0
         for(int i = 1; i <= 10; i++){
         	levelTimes.put(i, 0);
         }

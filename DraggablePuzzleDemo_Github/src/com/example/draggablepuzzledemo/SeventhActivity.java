@@ -7,7 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,25 +15,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SeventhActivity extends Activity {
-
+public class SeventhActivity extends Activity {	
+	//顯示訊息的toast
 	private Toast seventhTos;
 	// 拖曳的方塊
 	ImageView brown_vertical_block, red_long_tblock, gray_short_right_tblock, blue_horizontal_block, orange_leftdown_lblock, pink_n_block;
 	SelfDefImgView brown_vertical, red_long_t, gray_short_right_t, blue_horizontal, orange_leftdown_l, pink_n;
 	//拖拉監聽器
 	DragImgListener seventhImgListener;
-	
 	//計時器 
 	public static Timer seventhTimer;
-	
 	//計時器顯示
 	TextView seventhTxtTimer;
-	//          目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//          目前累計秒數        
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartSeventhTimer = true;
-	
+	// 用來記住方格位置的Map
 	public static HashMap<String, SelfDefImgView> seventhViewMap = new HashMap<String, SelfDefImgView>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -130,15 +127,7 @@ public class SeventhActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					seventhTxtTimer.setText(resultTime);
+					seventhTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}
@@ -164,6 +153,10 @@ public class SeventhActivity extends Activity {
 		
 	};
 	
+	/**
+	 * 關閉計時器 並且回到上一頁
+	 * @param v
+	 */
 	public void goUpPage(View v) {
 		isStartSeventhTimer = false;
 		seventhTimer.cancel();

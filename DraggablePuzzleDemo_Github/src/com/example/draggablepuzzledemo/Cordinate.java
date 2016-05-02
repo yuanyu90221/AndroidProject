@@ -7,7 +7,9 @@ package com.example.draggablepuzzledemo;
  *
  */
 public class Cordinate {
+	// x軸座標
 	int xindex;
+	// y軸座標
 	int yindex;
 	
 	public Cordinate(int x, int y){

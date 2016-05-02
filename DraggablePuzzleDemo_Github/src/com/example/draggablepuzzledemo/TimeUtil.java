@@ -1,6 +1,17 @@
 package com.example.draggablepuzzledemo;
 
+/**
+ * @description 用來處理時間格式的物件
+ * 
+ * @author Pan
+ *
+ */
 public class TimeUtil {
+	/**
+	 * 轉換秒數成為分秒格式顯示
+	 * @param tsec
+	 * @return  mm:ss
+	 */
 	public static String getFormatStr(int tsec){
 		String resultMin, resultSec, resultTime;
 		int cmin = (tsec/ 60) % 60;

@@ -17,24 +17,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ThirdActivity extends Activity {
-
+	//顯示訊息的toast
 	private Toast thirdTos;
 	//拖曳的方塊
 	ImageView green_nblock, pink_rightdown_corner, red_long_tblock, orange_down_lblock;
 	SelfDefImgView green_n, pink_rightdown_c, red_long_t, orange_down_l;
 	//拖拉監聽器
-	DragImgListener thirdImgListener;
-	
+	DragImgListener thirdImgListener;	
 	//計時器 
-	public static Timer thirdTimer;
-	
+	public static Timer thirdTimer;	
 	//計時器顯示
 	TextView thirdTxtTimer;
-	//          目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//          目前累計秒數       
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartThirdTimer = true;
-	
+	// 用來記住方格位置的Map
 	public static HashMap<String, SelfDefImgView> thirdViewMap = new HashMap<String, SelfDefImgView>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,15 +108,7 @@ public class ThirdActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					thirdTxtTimer.setText(resultTime);
+					thirdTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}
@@ -144,6 +134,10 @@ public class ThirdActivity extends Activity {
 		
 	};
 	
+	/**
+	 * 關閉計時器 並且回到上一頁
+	 * @param v
+	 */
 	public void goUpPage(View v) {
 		isStartThirdTimer = false;
 		thirdTimer.cancel();

@@ -12,11 +12,11 @@ import android.util.Log;
  *
  */
 public class PositionMatrix {
-	
+	// 儲存格方形矩陣 的size
 	public static int size = 20;
-	
+	// 儲存格方形矩陣
 	public PositionElement[][] position= new PositionElement[size][size];
-	
+	// 用來記錄目前有值的List
     public Map<String, PositionElement> hasValue = new HashMap<String, PositionElement>();
     
     public PositionMatrix(){
@@ -27,6 +27,7 @@ public class PositionMatrix {
     	}
     	
     }
+    
 	public PositionElement[][] getPosition() {
 		return position;
 	}

@@ -7,7 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,24 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class FourthActivity extends Activity {
-
+	// 用來顯示訊息的Toast
 	private Toast fourthTos;
 	//拖曳的方塊
 	ImageView green_down_tblock_1, gray_right_tblock_1, purple_laydown_lblock, blue_laydown_lblock;
 	SelfDefImgView green_down_t_1, gray_right_t_1, purple_laydown_l, blue_laydown_l;
 	//拖拉監聽器
-	DragImgListener fourthImgListener;
-	
+	DragImgListener fourthImgListener;	
 	//計時器 
-	public static Timer fourthTimer;
-	
+	public static Timer fourthTimer;	
 	//計時器顯示
 	TextView fourthTxtTimer;
-	//             目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//             目前累計秒數        
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartFourthTimer = true;
-	
+	// 用來儲存方格位置的Map
 	public static HashMap<String, SelfDefImgView> fourthViewMap = new HashMap<String, SelfDefImgView>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -111,15 +108,7 @@ public class FourthActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					fourthTxtTimer.setText(resultTime);
+					fourthTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}
@@ -145,6 +134,10 @@ public class FourthActivity extends Activity {
 		
 	};
 	
+	/**
+	 * 關閉計時器 並且回到上一頁
+	 * @param v
+	 */
 	public void goUpPage(View v) {
 		isStartFourthTimer = false;
 		fourthTimer.cancel();

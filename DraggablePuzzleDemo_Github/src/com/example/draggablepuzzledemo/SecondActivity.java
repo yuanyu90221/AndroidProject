@@ -7,7 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,24 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SecondActivity extends Activity {
-	
+	//顯示訊息的toast
 	private Toast secondTos;
 	//拖曳的方塊
 	ImageView green_down_tblock, gray_right_tblock, blue_left_tblock, red_up_tblock;
 	SelfDefImgView green_down_t, gray_right_t, blue_left_t, red_up_t;
 	//拖拉監聽器
-	DragImgListener secondImgListener;
-	
+	DragImgListener secondImgListener;	
 	//計時器 
-	public static Timer secondTimer;
-	
+	public static Timer secondTimer;	
 	//計時器顯示
 	TextView secondTxtTimer;
-	//          目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//          目前累計秒數        
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartSecondTimer = true;
-	
+	// 用來記住方格位置的Map
 	public static HashMap<String, SelfDefImgView> secondViewMap = new HashMap<String, SelfDefImgView>();
 	
 	@Override
@@ -111,15 +108,7 @@ public class SecondActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					secondTxtTimer.setText(resultTime);
+					secondTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}

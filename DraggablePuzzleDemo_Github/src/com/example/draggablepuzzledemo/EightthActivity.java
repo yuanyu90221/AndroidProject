@@ -7,7 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,24 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EightthActivity extends Activity {
-	
+	// 顯示訊息的Toast
 	private Toast eightthTos;
 	// 拖曳的方塊
 	ImageView blue_left_tblock_1, green_down_tblock_2, gray_right_tblock_2, green_short_ublock, red_leftup_lblock, pink_square_2_block;
 	SelfDefImgView blue_left_t_1, green_down_t_2, gray_right_t_2, green_short_u, red_leftup_l, pink_square_2;
 	//拖拉監聽器
-	DragImgListener eightthImgListener;
-	
+	DragImgListener eightthImgListener;	
 	//計時器 
-	public static Timer eightthTimer;
-	
+	public static Timer eightthTimer;	
 	//計時器顯示
 	TextView eightthTxtTimer;
-	//          目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//          目前累計秒數        
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartEightthTimer = true;
-	
+	// 用來儲存方格位置的Map
 	public static HashMap<String, SelfDefImgView> eightthViewMap = new HashMap<String, SelfDefImgView>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -130,15 +127,7 @@ public class EightthActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					eightthTxtTimer.setText(resultTime);
+					eightthTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}
@@ -164,6 +153,10 @@ public class EightthActivity extends Activity {
 		
 	};
 	
+	/**
+	 * 關閉計時器 並且回到上一頁
+	 * @param v
+	 */
 	public void goUpPage(View v) {
 		isStartEightthTimer = false;
 		eightthTimer.cancel();

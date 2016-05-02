@@ -5,8 +5,12 @@ import java.util.HashMap;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
+/**
+ * @description 跟SQLLite存取相關的物件
+ * 
+ * @author Jane
+ */
 public class DBUtil {
 	// 設定基本DB Name跟 TB_NAME
 	static final String DB_NAME="TimeDB";
@@ -38,6 +42,12 @@ public class DBUtil {
     	}
     }
     
+    /**
+     * 查詢特定範圍關卡的時間
+     * @param db
+     * @param levels
+     * @return
+     */
     public static HashMap<Integer, Integer> queryRangeDate(SQLiteDatabase db, int[] levels){
     	HashMap<Integer, Integer> resultMap = new HashMap<Integer, Integer>();
     	
@@ -68,6 +78,12 @@ public class DBUtil {
     	return resultMap;
     }
     
+    /**
+     * 更新單筆資料
+     * @param db
+     * @param tsec
+     * @param level
+     */
     public static void updateData(SQLiteDatabase db, int tsec, int level){
     	ContentValues cv = new ContentValues(1);
     	cv.put(TSEC, tsec);

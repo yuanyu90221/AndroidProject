@@ -12,7 +12,7 @@ import android.widget.Toast;
 /**
  * @description 拖拉監聽器 用來監聽物件移動
  * 
- * @author Yuanyu
+ * @author Yuanyu & 奕軒
  * 
  */
 public class DragImgListener implements OnTouchListener{
@@ -132,6 +132,7 @@ public class DragImgListener implements OnTouchListener{
 			int currentTsec = 0;
 			// 當遊戲完成
 			if(score == checkValue){
+				// 更改顯示訊息
 				cod = String.format("過關!");
 				switch(playLevel){
 					case 1:
@@ -185,12 +186,14 @@ public class DragImgListener implements OnTouchListener{
 						TenthActivity.tenthTimer.cancel();
 						break;
 				}
+				// 從原本在MainIndexActivity裡面的HashMap取得該level的時間
 				int accTime = MainIndexActivity.levelTimes.get(playLevel);
-				// acctTime = 0 update
+				// 如果累計時間 == 0 直接更新
 				if(accTime==0){
 					DBUtil.updateData(MainIndexActivity.db, currentTsec, playLevel);
 				}
 				else{
+					// 如果累計時間!=0 且 新的闖關時間 < 舊的累計時間 更新
 					if(accTime > currentTsec){
 						DBUtil.updateData(MainIndexActivity.db, currentTsec, playLevel);
 					}

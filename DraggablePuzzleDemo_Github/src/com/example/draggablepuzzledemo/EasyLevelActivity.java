@@ -11,6 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * @description 提供關卡畫面
+ * 
+ * @author Jane 
+ */
 public class EasyLevelActivity extends Activity {
 	ImageView imgv1;
 	SQLiteDatabase db;
@@ -30,6 +35,7 @@ public class EasyLevelActivity extends Activity {
         timerTxt[3] = (TextView) findViewById(R.id.level4time);
         timerTxt[4] = (TextView) findViewById(R.id.level5time);
         HashMap<Integer, Integer> resultMap;
+        // 查詢1~5關的累計分數
         resultMap = DBUtil.queryRangeDate(db, levels);
         if(resultMap!=null && resultMap.size() == 5){
         	for(int i =0; i < 5; i++){

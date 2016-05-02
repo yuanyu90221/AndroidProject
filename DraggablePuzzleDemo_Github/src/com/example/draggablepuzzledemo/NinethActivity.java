@@ -7,7 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,24 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class NinethActivity extends Activity {
-
+	// 顯示訊息的Toast
 	private Toast ninethTos;
 	// 拖曳的方塊
 	ImageView red_leftup_lblock_1, gray_right_tblock_3, green_up_lblock_1, green_short_ublock_1, brown_square_2_block_1, gray_square_2_block_1;
 	SelfDefImgView red_leftup_l_1, gray_right_t_3, green_up_l_1, green_short_u_1, brown_square_2_1, gray_square_2_1;
 	//拖拉監聽器
-	DragImgListener ninethImgListener;
-	
+	DragImgListener ninethImgListener;	
 	//計時器 
-	public static Timer ninethTimer;
-	
+	public static Timer ninethTimer;	
 	//計時器顯示
 	TextView ninethTxtTimer;
-	//          目前累計秒數         顯示秒數                顯示分鐘數
-	public static int tsec = 0,  csec =0 , cmin =0;
+	//          目前累計秒數         
+	public static int tsec = 0;
 	// 啟動計時器flag
 	public static boolean isStartNinethTimer = true;
-	
+	// 用來記住方格位置的Map
 	public static HashMap<String, SelfDefImgView> ninethViewMap = new HashMap<String, SelfDefImgView>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -129,15 +126,7 @@ public class NinethActivity extends Activity {
 			switch(msg.what){
 				case 1:
 					// 計算目前時間
-					csec = tsec %60;
-					cmin = (tsec /60)%60;
-					String resultTime = "",resultMin="", resultSec="";
-					resultMin = String.valueOf(cmin).length() > 1 ?
-							    String.valueOf(cmin):"0"+String.valueOf(cmin);
-					resultSec = String.valueOf(csec).length() > 1 ?
-						    	String.valueOf(csec):"0"+String.valueOf(csec);
-					resultTime = resultMin + ":"+ resultSec;
-					ninethTxtTimer.setText(resultTime);
+					ninethTxtTimer.setText(TimeUtil.getFormatStr(tsec));
 					break;
 			}
 		}
@@ -163,6 +152,11 @@ public class NinethActivity extends Activity {
 		
 	};
 	
+	/**
+	 * 關閉計時器 並且回到上一頁
+	 * 
+	 * @param v
+	 */
 	public void goUpPage(View v) {
 		isStartNinethTimer = false;
 		ninethTimer.cancel();

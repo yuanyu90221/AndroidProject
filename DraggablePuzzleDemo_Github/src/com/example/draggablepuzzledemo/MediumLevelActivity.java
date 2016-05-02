@@ -32,6 +32,7 @@ public class MediumLevelActivity extends Activity {
         timerTxt[3] = (TextView) findViewById(R.id.level9time);
         timerTxt[4] = (TextView) findViewById(R.id.level10time);
         HashMap<Integer, Integer> resultMap;
+        // 查詢6~10關的累計分數
         resultMap = DBUtil.queryRangeDate(db, levels);
         if(resultMap!=null && resultMap.size() == 5){
         	for(int i =0; i < 5; i++){
