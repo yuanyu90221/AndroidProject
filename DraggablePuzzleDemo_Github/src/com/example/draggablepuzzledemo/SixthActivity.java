@@ -119,7 +119,6 @@ public class SixthActivity extends Activity {
 		lightgreen_leftup_l.addCord(new Cordinate(1,0));
 		sixthViewMap.put(String.valueOf(R.id.lightgreen_leftup_lblock), lightgreen_leftup_l);
 		sixthImgListener.changeRec(10, 10, 10, 10, lightgreen_leftup_l.occupiedSpaceList);
-		Log.e("changeValueEnd", "changeValueEnd" + sixthImgListener.position.toString());
 		// 3. 帶入計時器
 		sixthTxtTimer = (TextView) findViewById(R.id.sixthTimer);
 		sixthTimer = new Timer();

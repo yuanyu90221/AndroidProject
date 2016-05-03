@@ -130,17 +130,35 @@ public class DragImgListener implements OnTouchListener{
 					else {
 						int offsetx = (tempFx > curpost.xindex)? -1: 1;
 						int offsety = (tempFy > curpost.yindex)? -1: 1;
-						for(int x = tempFx;Math.abs(x-curpost.xindex) > 1 ; x += offsetx){
-							for(int y = tempFy;Math.abs(y-curpost.yindex) > 1 ; y += offsety){
-								if(checkRec(x,y,resultPosition,sv.occupiedSpaceList)){
-									changeRec(curpost.xindex, curpost.yindex, x, y,sv.occupiedSpaceList);
-									fx0 = x;
-									fy0 = y;
+						for(int tempX = tempFx;Math.abs(tempX-curpost.xindex) > 1 ; tempX += offsetx){
+							for(int tempY = tempFy;Math.abs(tempY-curpost.yindex) > 1 ; tempY += offsety){
+								if(checkRec(tempX,tempY,resultPosition,sv.occupiedSpaceList)){
+									changeRec(curpost.xindex, curpost.yindex, tempX, tempY,sv.occupiedSpaceList);
+									fx0 = tempX;
+									fy0 = tempY;
 									curpost.xindex = fx0;
 									curpost.yindex = fy0;
 									break;
 								}
 							}
+						}
+					}
+				}
+			}
+			else {
+				int modifiedTempFx = (tempFx >= checkRange_x) ? checkRange_x-1: 0;
+				int modifiedTempFy = (tempFy >= checkRange_y) ? checkRange_y-1: 1;
+				int offsetx = (modifiedTempFx > curpost.xindex )? -1:1;
+				int offsety = (modifiedTempFy > curpost.yindex) ? -1:1;
+				for(int tempX = modifiedTempFx;Math.abs(tempX-curpost.xindex) > 1 ; tempX += offsetx){
+					for(int tempY = modifiedTempFy;Math.abs(tempY-curpost.yindex) > 1 ; tempY += offsety){
+						if(checkRec(tempX,tempY,resultPosition,sv.occupiedSpaceList)){
+							changeRec(curpost.xindex, curpost.yindex, tempX, tempY,sv.occupiedSpaceList);
+							fx0 = tempX;
+							fy0 = tempY;
+							curpost.xindex = fx0;
+							curpost.yindex = fy0;
+							break;
 						}
 					}
 				}
