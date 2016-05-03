@@ -125,8 +125,7 @@ public class DragImgListener implements OnTouchListener{
 						fx0 = (int)(v.getX()/RANGE);
 						fy0 =(v.getTop()/RANGE);
 						curpost.xindex = fx0;
-						curpost.yindex = fy0;
-						
+						curpost.yindex = fy0;						
 					}
 					else {
 						int offsetx = (tempFx > curpost.xindex)? -1: 1;

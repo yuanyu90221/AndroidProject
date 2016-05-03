@@ -44,7 +44,7 @@ public class PositionMatrix {
 	 */
 	public void changeValue(int w, int h, boolean changeValue){
 		// ¥ý§ä¨ú¥XsearchKey 
-		String searchKey = String.valueOf(w) + String.valueOf(h);
+		String searchKey = String.valueOf(w) +"-"+ String.valueOf(h);
 		Log.e("changeValue", "changeValue " + searchKey);
 		PositionElement pe = hasValue.get(searchKey);
 		// find no
