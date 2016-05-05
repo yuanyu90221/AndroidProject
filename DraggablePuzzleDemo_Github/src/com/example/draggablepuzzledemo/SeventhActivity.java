@@ -165,28 +165,56 @@ public class SeventhActivity extends Activity {
 		
 	};
 	
+	public void initTimer() {
+		seventhTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartSeventhTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}
+			
+		};
+	}
+	
+	public static void stopTimer(){
+		isStartSeventhTimer = false;
+		if(seventhTimer != null){
+			seventhTimer.cancel();
+			seventhTimer = null;
+		}
+	}
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartSeventhTimer == false){
+			isStartSeventhTimer = true;
+			initTimer();
 			seventhTimer.schedule(task, tsec, 1000);
 		}
 	}
 
 	@Override
-	protected void onStop() {
-		isStartSeventhTimer = false;
-		seventhTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
+	
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartSeventhTimer = false;
-		seventhTimer.cancel();
+		stopTimer();
 		finish();
 	}
 	

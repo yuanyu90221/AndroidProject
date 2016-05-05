@@ -145,28 +145,58 @@ public class FourthActivity extends Activity {
 		
 	};
 	
+	public void initTimer(){
+		fourthTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartFourthTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}
+			
+		};
+	}
+	
+	public static void stopTimer(){
+		isStartFourthTimer = false;
+		if(fourthTimer != null){
+			fourthTimer.cancel();
+			fourthTimer = null;
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartFourthTimer == false){
+			isStartFourthTimer = true;
+			initTimer();
 			fourthTimer.schedule(task, tsec, 1000);
 		}
 	}
 
+	
 	@Override
-	protected void onStop() {
-		isStartFourthTimer = false;
-		fourthTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
+
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartFourthTimer = false;
-		fourthTimer.cancel();
+		stopTimer();
 		finish();
 	}
 }

@@ -165,28 +165,57 @@ public class EightthActivity extends Activity {
 		
 	};
 	
+	public void initTimer(){
+		eightthTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartEightthTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}
+			
+		};
+
+	}
+	
+	public static void stopTimer(){
+		isStartEightthTimer = false;
+		if(eightthTimer != null){
+			eightthTimer.cancel();
+			eightthTimer = null;
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartEightthTimer == false){
+			isStartEightthTimer = true;
+			initTimer();
 			eightthTimer.schedule(task, tsec, 1000);
 		}
 	}
 
 	@Override
-	protected void onStop() {
-		isStartEightthTimer = false;
-		eightthTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartEightthTimer = false;
-		eightthTimer.cancel();
+		stopTimer();
 		finish();
 	}
 }

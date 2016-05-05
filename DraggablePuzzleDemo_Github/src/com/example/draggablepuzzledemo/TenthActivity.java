@@ -165,20 +165,48 @@ public class TenthActivity extends Activity {
 		
 	};
 	
+	public void initTimer(){
+		tenthTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartTenthTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}			
+		};
+	}
+	
+	public static void stopTimer(){
+		isStartTenthTimer = false;
+		if(tenthTimer != null){
+			tenthTimer.cancel();
+			tenthTimer = null;
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartTenthTimer == false){
+			isStartTenthTimer = true;
+			initTimer();
 			tenthTimer.schedule(task, tsec, 1000);
 		}
 	}
 
 	@Override
-	protected void onStop() {
-		isStartTenthTimer = false;
-		tenthTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
 	/**
 	 * 關閉計時器 並且回到上一頁
@@ -186,8 +214,7 @@ public class TenthActivity extends Activity {
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartTenthTimer = false;
-		tenthTimer.cancel();
+		stopTimer();
 		finish();
 	}
 	

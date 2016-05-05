@@ -145,28 +145,55 @@ public class FifthActivity extends Activity {
 		
 	};
 	
+	public void initTimer() {
+		fifthTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartFifthTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}
+			
+		};
+	}
+	
+	public static void stopTimer() {
+		isStartFifthTimer = false;
+		if(fifthTimer != null){
+			fifthTimer.cancel();
+			fifthTimer = null;
+		}
+	}
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartFifthTimer == false){
+			isStartFifthTimer = true;
+			initTimer();
 			fifthTimer.schedule(task, tsec, 1000);
 		}
 	}
 
 	@Override
-	protected void onStop() {
-		isStartFifthTimer = false;
-		fifthTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartFifthTimer = false;
-		fifthTimer.cancel();
+		stopTimer();
 		finish();
 	}
 }

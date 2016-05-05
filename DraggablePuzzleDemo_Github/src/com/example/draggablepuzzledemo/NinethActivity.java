@@ -164,20 +164,47 @@ public class NinethActivity extends Activity {
 		
 	};
 	
+	public void initTimer(){
+		ninethTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartNinethTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}			
+		};
+	}
+	
+	public static void stopTimer(){
+		isStartNinethTimer = false;
+		if(ninethTimer != null){
+			ninethTimer.cancel();
+			ninethTimer = null;
+		}
+	}
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartNinethTimer == false){
+			isStartNinethTimer = true;
+			initTimer();
 			ninethTimer.schedule(task, tsec, 1000);
 		}
 	}
 
 	@Override
-	protected void onStop() {
-		isStartNinethTimer = false;
-		ninethTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
 	/**
 	 * 關閉計時器 並且回到上一頁
@@ -185,8 +212,7 @@ public class NinethActivity extends Activity {
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartNinethTimer = false;
-		ninethTimer.cancel();
+		stopTimer();
 		finish();
 	}
 }

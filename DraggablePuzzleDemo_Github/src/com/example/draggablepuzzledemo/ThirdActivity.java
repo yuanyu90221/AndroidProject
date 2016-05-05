@@ -145,29 +145,56 @@ public class ThirdActivity extends Activity {
 		
 	};
 	
+	public void initTimer() {
+		thirdTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartThirdTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}
+			
+		};
+	}
+	
+	public static void stopTimer(){
+		isStartThirdTimer = false;
+		if(thirdTimer != null){
+			thirdTimer.cancel();
+			thirdTimer = null;
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartThirdTimer == false){
+			isStartThirdTimer = true;
+			initTimer();
 			thirdTimer.schedule(task, tsec, 1000);
 		}
 	}
-
-	@Override
-	protected void onStop() {
-		isStartThirdTimer = false;
-		thirdTimer.cancel();
-		super.onStop();
-	}
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
+	}
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartThirdTimer = false;
-		thirdTimer.cancel();
+		stopTimer();
 		finish();
 
 	}

@@ -145,25 +145,53 @@ public class SecondActivity extends Activity {
 		
 	};
 	
+	public void initTimer(){
+		secondTimer = new Timer();
+		task = new TimerTask(){
+
+			@Override
+			public void run() {
+				if(isStartSecondTimer){
+					//如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+					 
+					//傳送訊息1
+					message.what =1;
+					handler.sendMessage(message);
+				}			
+			}
+			
+		};
+	}
+	
+	public static void stopTimer(){
+		isStartSecondTimer = false;
+		if(secondTimer != null){
+			secondTimer.cancel();
+			secondTimer = null;
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartSecondTimer== false){
+			isStartSecondTimer = true;
+			initTimer();
 			secondTimer.schedule(task, tsec, 1000);
 		}
-	}
-
+	}	
+	
 	@Override
-	protected void onStop() {
-		isStartSecondTimer = false;
-		secondTimer.cancel();
-		super.onStop();
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
 	
 	public void goUpPage(View v) {
-		isStartSecondTimer = false;
-		secondTimer.cancel();
+		stopTimer();
 		finish();
 	}
 }

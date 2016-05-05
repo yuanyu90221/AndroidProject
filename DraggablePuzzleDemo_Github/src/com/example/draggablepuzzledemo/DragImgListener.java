@@ -173,54 +173,44 @@ public class DragImgListener implements OnTouchListener{
 				cod = String.format("過關!");
 				switch(playLevel){
 					case 1:
-						FirstActivity.isStartTimer = false;
 						currentTsec = FirstActivity.tsec;
-						FirstActivity.timer.cancel();
+						FirstActivity.stopTimer();
 						break;
-					case 2:
-						SecondActivity.isStartSecondTimer = false;
+					case 2:						
 						currentTsec = SecondActivity.tsec;
-						SecondActivity.secondTimer.cancel();
+						SecondActivity.stopTimer();
 						break;
 					case 3:
-						ThirdActivity.isStartThirdTimer = false;
 						currentTsec = ThirdActivity.tsec;
-						ThirdActivity.thirdTimer.cancel();
+						ThirdActivity.stopTimer();
 						break;
 					case 4:
-						FourthActivity.isStartFourthTimer = false;
 						currentTsec = FourthActivity.tsec;
-						FourthActivity.fourthTimer.cancel();
+						FourthActivity.stopTimer();
 						break;
 					case 5:
-						FifthActivity.isStartFifthTimer = false;
 						currentTsec = FifthActivity.tsec;
-						FifthActivity.fifthTimer.cancel();
+						FifthActivity.stopTimer();
 						break;
 					case 6:
-						SixthActivity.isStartSixthTimer = false;
 						currentTsec = SixthActivity.tsec;
-						SixthActivity.sixthTimer.cancel();
+						SixthActivity.stopTimer();
 						break;
 					case 7:
-						SeventhActivity.isStartSeventhTimer = false;
 						currentTsec = SeventhActivity.tsec;
-						SeventhActivity.seventhTimer.cancel();
+						SeventhActivity.stopTimer();
 						break;
 					case 8:
-						EightthActivity.isStartEightthTimer = false;
 						currentTsec = EightthActivity.tsec;
-						EightthActivity.eightthTimer.cancel();
+						EightthActivity.stopTimer();
 						break;
 					case 9:
-						NinethActivity.isStartNinethTimer = false;
 						currentTsec = NinethActivity.tsec;
-						NinethActivity.ninethTimer.cancel();
+						NinethActivity.stopTimer();
 						break;
 					case 10:
-						TenthActivity.isStartTenthTimer = false;
 						currentTsec = TenthActivity.tsec;
-						TenthActivity.tenthTimer.cancel();
+						TenthActivity.stopTimer();
 						break;
 				}
 				// 從原本在MainIndexActivity裡面的HashMap取得該level的時間

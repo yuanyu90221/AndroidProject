@@ -149,30 +149,57 @@ public class FirstActivity extends Activity {
 		}
 
 	};
+	
+	public void initTimer(){
+		timer = new Timer();
+		task = new TimerTask() {
 
+			@Override
+			public void run() {
+				if (isStartTimer) {
+					// 如果startflag是true則每秒tsec+1
+					tsec++;
+					Message message = new Message();
+
+					// 傳送訊息1
+					message.what = 1;
+					handler.sendMessage(message);
+				}
+			}
+
+		};
+	}
+
+	public static void stopTimer(){
+		isStartTimer = false;
+		if(timer != null){
+			timer.cancel();
+			timer = null;
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Log.e("yuanyu", "yuanyu[timertask]");
 		if(isStartTimer==false){
+			isStartTimer=true;			
+			initTimer();
 			timer.schedule(task, tsec, 1000);
 		}
 	}
 
-	@Override
-	protected void onStop() {
-		isStartTimer = false;
-		timer.cancel();
-		super.onStop();
+	@Override 
+	protected void onPause() {
+		super.onPause();
+		stopTimer();
 	}
-
 	/**
 	 * 關閉計時器 並且回到上一頁
 	 * @param v
 	 */
 	public void goUpPage(View v) {
-		isStartTimer = false;
-		timer.cancel();
+		stopTimer();
 		finish();
 	}
 	
