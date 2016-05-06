@@ -20,7 +20,6 @@ public class Permutation {
 				   
 				   List<Integer> temp = new ArrayList<Integer>(lt.subList(1,lt.size()));
 				   List<List<Integer>> restPerms = perms(temp);
-				   System.out.println(restPerms.size());
 				   for(List<Integer> rest: restPerms){
 					   List<Integer> sol = new ArrayList<Integer>();
 					   sol.add(lt.get(0));
@@ -61,7 +60,7 @@ public class Permutation {
 	
 	public static void main(String[] args){
 		List<Integer> permsList = new ArrayList<Integer>();
-		for(int i = 1 ; i <= 3; i++){
+		for(int i = 1 ; i <= 4; i++){
 			permsList.add(i);
 		}
 		List<List<Integer>> result = perms(permsList);
