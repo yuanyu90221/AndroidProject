@@ -58,13 +58,50 @@ public class Permutation {
 		System.out.println();
 	}
 	
+	// C(m,n) = C(m-1, n-1) + C(m-1,n)
+	public static List<List<Integer>> comb(List<Integer> combList,int m, int n){
+		List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+		if(n==0){ // 代表所有都取完了
+			List<Integer> temp1 = new ArrayList<Integer>();
+			resultList.add(temp1);
+		}
+		else{
+			if(m > n){
+				// 取第一個
+				List<Integer> temp = new ArrayList<Integer>(combList.subList(1, combList.size()));
+				List<List<Integer>> rest = comb(temp,m-1,n-1); 
+				for(List<Integer> lt: rest){
+					List<Integer> sol = new ArrayList<Integer>();
+					sol.add(combList.get(0));
+
+					sol.addAll(lt);
+					resultList.add(sol);
+				}
+				// 不取第一個
+				List<Integer> temp1 = new ArrayList<Integer>(combList.subList(1, combList.size()));
+				List<List<Integer>> rest1 = comb(temp1, m-1,n);
+				for(List<Integer> lt: rest1){
+					List<Integer> sol1 = new ArrayList<Integer>();
+					sol1.addAll(lt);
+					resultList.add(sol1);
+				}
+			}
+			else if( m == n){
+				List<Integer> temp1 = new ArrayList<Integer>(combList);
+				resultList.add(temp1);
+			}
+		}
+		
+		return resultList;
+	}
+	
 	public static void main(String[] args){
 		List<Integer> permsList = new ArrayList<Integer>();
-		for(int i = 1 ; i <= 4; i++){
+		for(int i = 1 ; i <= 5;i++){
 			permsList.add(i);
 		}
-		List<List<Integer>> result = perms(permsList);
-		
+		//List<List<Integer>> result = perms(permsList);
+		List<List<Integer>> result = comb(permsList,5,4);
 		
 		for(List<Integer> lt: result){
 			printList(lt);
