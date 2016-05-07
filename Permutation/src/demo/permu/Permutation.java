@@ -71,19 +71,23 @@ public class Permutation {
 				List<Integer> temp = new ArrayList<Integer>(combList.subList(1, combList.size()));
 				List<List<Integer>> rest = comb(temp,m-1,n-1); 
 				for(List<Integer> lt: rest){
+					
 					List<Integer> sol = new ArrayList<Integer>();
 					sol.add(combList.get(0));
 
 					sol.addAll(lt);
 					resultList.add(sol);
+					
 				}
 				// 不取第一個
 				List<Integer> temp1 = new ArrayList<Integer>(combList.subList(1, combList.size()));
 				List<List<Integer>> rest1 = comb(temp1, m-1,n);
 				for(List<Integer> lt: rest1){
-					List<Integer> sol1 = new ArrayList<Integer>();
-					sol1.addAll(lt);
-					resultList.add(sol1);
+					if(lt.size()!=0){
+						List<Integer> sol1 = new ArrayList<Integer>();
+						sol1.addAll(lt);
+						resultList.add(sol1);
+					}
 				}
 			}
 			else if( m == n){
@@ -95,14 +99,37 @@ public class Permutation {
 		return resultList;
 	}
 	
+	public static List<List<Integer>> combFixN(List<Integer> combList, int fixedIndex, int n){
+		List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+		List<Integer> tempList = new ArrayList<Integer>(combList);
+		Integer firstElement = tempList.get(fixedIndex);
+		tempList.remove(fixedIndex);
+		List<List<Integer>> restComb = comb(tempList,combList.size(),n-1);
+		for(List<Integer> restC:restComb){
+			if(restC.size()==n-1){
+				List<Integer> possibleList = new ArrayList<Integer>();
+				possibleList.add(firstElement);
+				possibleList.addAll(restC);
+				resultList.add(possibleList);
+			}
+		}
+		return resultList;
+	}
+	
 	public static void main(String[] args){
 		List<Integer> permsList = new ArrayList<Integer>();
 		for(int i = 1 ; i <= 5;i++){
 			permsList.add(i);
 		}
-		//List<List<Integer>> result = perms(permsList);
-		List<List<Integer>> result = comb(permsList,5,4);
-		
+//		//List<List<Integer>> result = perms(permsList);
+//		for(int k=0;k <=3;k++){
+//			List<List<Integer>> result = comb(permsList,3,k);
+//		
+//			for(List<Integer> lt: result){
+//				printList(lt);
+//			}
+//		}
+		List<List<Integer>> result = combFixN(permsList,0,3);
 		for(List<Integer> lt: result){
 			printList(lt);
 		}
