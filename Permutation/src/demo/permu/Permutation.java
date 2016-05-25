@@ -1,5 +1,8 @@
 package demo.permu;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +59,17 @@ public class Permutation {
 			System.out.print(i + ",");
 		}
 		System.out.println();
+	}
+	
+	public static void writeList(List<Integer> resultList, DataOutputStream fw ) throws IOException{
+		
+		for(Integer i: resultList){
+			fw.writeBytes(i.toString());
+			fw.writeBytes(",");
+		}
+		fw.writeBytes("\n");
+		fw.flush();
+		
 	}
 	
 	// C(m,n) = C(m-1, n-1) + C(m-1,n)
@@ -117,21 +131,70 @@ public class Permutation {
 	}
 	
 	public static void main(String[] args){
-		List<Integer> permsList = new ArrayList<Integer>();
-		for(int i = 1 ; i <= 5;i++){
-			permsList.add(i);
-		}
-//		//List<List<Integer>> result = perms(permsList);
-//		for(int k=0;k <=3;k++){
-//			List<List<Integer>> result = comb(permsList,3,k);
-//		
-//			for(List<Integer> lt: result){
-//				printList(lt);
+//		FileOutputStream output = null;
+//		DataOutputStream dw = null;
+//		try {
+//			output = new FileOutputStream("D://result.txt");
+//			dw = new DataOutputStream(output);
+//			List<Integer> permsList = new ArrayList<Integer>();
+//			for (int i = 1; i <= 10; i++) {
+//				permsList.add(i);
+//			}
+//			// //List<List<Integer>> result = perms(permsList);
+//			// for(int k=0;k <=3;k++){
+//			// List<List<Integer>> result = comb(permsList,3,k);
+//			//
+//			// for(List<Integer> lt: result){
+//			// printList(lt);
+//			// }
+//			// }
+//			List<List<Integer>> result = comb(permsList, 10, 3);
+//			System.out.println("size = " + result.size());
+//			dw.writeBytes("size = " + result.size()+"\n");
+//			for (List<Integer> lt : result) {
+//				// printList(lt);
+//				List<Integer> restList = new ArrayList<Integer>(permsList);
+//				restList.removeAll(lt);
+//				List<List<Integer>> specialList = comb(restList,7, 3);
+//				for (List<Integer> sp : specialList) {
+//					System.out.print("result :");
+//					restList.clear();
+//					restList.addAll(lt);
+//					restList.addAll(sp);
+//					printList(restList);
+//					writeList(restList,dw);
+//				}
+//				//writeList(lt,dw);
+//			}
+//		} catch (IOException e) {
+//			
+//			e.printStackTrace();
+//			return ;
+//		}finally{
+//			if(output != null){
+//				try {
+//					if(dw!=null){
+//						dw.close();
+//					}
+//					output.close();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 //			}
 //		}
-		List<List<Integer>> result = combFixN(permsList,0,3);
-		for(List<Integer> lt: result){
-			printList(lt);
+//		
+		
+		List<Integer> permsList = new ArrayList<Integer>();
+		for (int i = 1; i <= 49; i++) {
+			permsList.add(i);
+		}
+		for(int i= 0; i < permsList.size(); i ++){
+			List<List<Integer>> result = combFixN(permsList, i, 4);
+			System.out.println("size = " + result.size());
+			for (List<Integer> lt : result) {
+			   printList(lt);
+			}
 		}
 		
 	}
